@@ -7,7 +7,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DaoFactory implements Serializable {
+public class HibernateUtil implements Serializable {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	

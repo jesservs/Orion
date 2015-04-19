@@ -3,11 +3,12 @@ package br.com.unigranrio.orion.controle;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +20,8 @@ import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 import br.com.unigranrio.orion.servico.PadraoServico;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
+@Named(value = "padraoControle")
 @SessionScoped
-@ManagedBean(name = "padraoControle")
 public class PadraoControle implements PadraoInterface<Object> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -53,6 +54,7 @@ public class PadraoControle implements PadraoInterface<Object> {
 
 	private ProjetoDeTesteBean projetoDeTeste = new ProjetoDeTesteBean();
 
+	@Inject
 	private PadraoServico p = new PadraoServico();
 
 	public PadraoControle() {
@@ -509,6 +511,7 @@ public class PadraoControle implements PadraoInterface<Object> {
 	public String paginaListarAtores() {
 
 		this.logger.info("Controle Lista de Atores ");
+
 		this.atores = this.getListaAtores();
 
 		return "/visao/projeto/lista/lista-ator";

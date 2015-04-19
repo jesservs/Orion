@@ -2,15 +2,17 @@ package br.com.unigranrio.orion.modelo.persistencia;
 
 import java.util.List;
 
+import javax.inject.Named;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.util.DaoFactory;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
-public class PadraoPersistencia extends DaoFactory implements
+@Named
+public class PadraoPersistencia implements
 		PadraoInterface<Object> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -21,19 +23,30 @@ public class PadraoPersistencia extends DaoFactory implements
 
 	private StringBuilder sql;
 
-	private Class clazz;
-
 	private Session sessao;
 
 	private Transaction transacao;
 
-	public PadraoPersistencia(Class clazz) {
+	private Class clazz;
 
+	public PadraoPersistencia() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public PadraoPersistencia(Logger logger, Object o, StringBuilder sql,
+			Session sessao, Transaction transacao, Class clazz) {
+		super();
+		this.logger = logger;
+		this.o = o;
+		this.sql = sql;
+		this.sessao = sessao;
+		this.transacao = transacao;
 		this.clazz = clazz;
+	}
 
-		this.logger.info("Nova Instancia Persistencia");
+	public void novaSessao(Session sessao) {
 
-		this.sessao = this.getSessionfactory().openSession();
+		this.sessao = sessao;
 
 		this.transacao = this.sessao.getTransaction();
 	}
@@ -151,8 +164,7 @@ public class PadraoPersistencia extends DaoFactory implements
 
 			this.logger.info("Persistencia Listar");
 
-			List<Object> lista = (List<Object>) this.sessao.createCriteria(
-					clazz).list();
+			List<Object> lista = this.sessao.createCriteria(clazz).list();
 
 			this.transacao.commit();
 
@@ -196,14 +208,6 @@ public class PadraoPersistencia extends DaoFactory implements
 		this.sql = sql;
 	}
 
-	public Class getClazz() {
-		return clazz;
-	}
-
-	public void setClazz(Class clazz) {
-		this.clazz = clazz;
-	}
-
 	public Session getSessao() {
 		return sessao;
 	}
@@ -218,6 +222,14 @@ public class PadraoPersistencia extends DaoFactory implements
 
 	public void setTransacao(Transaction transacao) {
 		this.transacao = transacao;
+	}
+
+	public Class getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Class clazz) {
+		this.clazz = clazz;
 	}
 
 }
