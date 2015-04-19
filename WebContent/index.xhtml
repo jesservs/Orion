@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+<h:head>
+	<title>Orion</title>
+</h:head>
+
+<h:body style="background-color: silver;">
+    	
+        <div style="background-color: black;">
+        	<p:separator/>
+        		&nbsp;&nbsp;
+           		<h:graphicImage library="img" name="orion-logo.png" width="125" height="175"/>
+           		<h:graphicImage library="img" name="orion-nome.png" width="275" height="75"/>
+            <p:separator/>
+        </div>
+        <div align="center" style="background-color: white;">
+            <p:separator/>
+            <br/>
+            <h:form>
+                <p:outputLabel value="Autenticação de Usuarios:" style="color: gray; font-size: 20px;"/>
+                <br/>
+                <br/>
+                <h:messages/>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Login:"/>
+                    <br/>
+                    <p:inputText value="#{padraoControle.login}" />
+                    <br/>
+                    <p:outputLabel value="Senha:"/>
+                    <br/>
+                    <p:password value="#{padraoControle.senha}" />
+                    <br/>
+                    <p:commandButton value="Entrar" action="#{padraoControle.paginaEntrar}"/>
+                </h:panelGrid>
+            </h:form>
+            <br/>
+            <p:separator/>
+        </div>
+        <div style="background-color: black;">
+        	<p:separator/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <p:separator/>
+        </div>
+  </h:body>
+</html>
