@@ -12,7 +12,7 @@
 
 <h:body style="background-color: silver;">
 	
-	<ui:composition template="./home-projeto.xhtml">
+	<ui:composition template="../home-projeto.xhtml">
 	
 		<ui:define name="corpo-projeto">
 	
@@ -20,7 +20,7 @@
 			
 				<p:separator />
 				
-				<h:outputText value="Lista de Projetos de Teste" style="font-size: 25px; font-weight:bold;" />
+				<p:outputLabel value="Lista de Projetos de Teste" style="font-size: 25px; font-weight:bold;" />
 					
 				<p:separator />
 				
@@ -76,13 +76,13 @@
 	
 							<p:commandButton value="Atualizar" action="#{padraoControle.atualizar}" icon="ui-icon-refresh">
 							
-								<f:setPropertyActionListener target="" value=""/>
+								<f:setPropertyActionListener target="#{padraoControle.projeto}" value="#{projeto}"/>
 							
 							</p:commandButton>
 	
 							<p:commandButton value="Excluir" action="#{padraoControle.excluir}" icon="ui-icon-trash">
 								
-								<f:setPropertyActionListener target="" value=""/>	
+								<f:setPropertyActionListener target="#{padraoControle.projeto}" value="#{projeto}"/>	
 								
 							</p:commandButton>
 	

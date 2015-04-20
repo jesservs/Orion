@@ -110,6 +110,9 @@ public class ProjetoDeTesteBean implements Serializable {
 	@Column(name = "vn_quantidade_teste")
 	private Long quantidadeTeste;
 
+	@Column(name = "vn_quantidade_anexo")
+	private Long quantidadeAnexo;
+
 	@Column(name = "vs_atualizacoes")
 	private String atualizacoes;
 
@@ -128,7 +131,8 @@ public class ProjetoDeTesteBean implements Serializable {
 			List<ModeloBean> modelos, List<TesteBean> testes,
 			Long quantidadeDocumento, Long quantidadeAtor,
 			Long quantidadeDiagrama, Long quantidadeArtefato,
-			Long quantidadeModelo, Long quantidadeTeste, String atualizacoes) {
+			Long quantidadeModelo, Long quantidadeTeste, Long quantidadeAnexo,
+			String atualizacoes) {
 		super();
 		this.idProjetoDeTeste = idProjetoDeTeste;
 		this.codigoProjetoDeTeste = codigoProjetoDeTeste;
@@ -157,6 +161,7 @@ public class ProjetoDeTesteBean implements Serializable {
 		this.quantidadeArtefato = quantidadeArtefato;
 		this.quantidadeModelo = quantidadeModelo;
 		this.quantidadeTeste = quantidadeTeste;
+		this.quantidadeAnexo = quantidadeAnexo;
 		this.atualizacoes = atualizacoes;
 	}
 
@@ -385,6 +390,14 @@ public class ProjetoDeTesteBean implements Serializable {
 		this.atualizacoes = atualizacoes;
 	}
 
+	public Long getQuantidadeAnexo() {
+		return quantidadeAnexo;
+	}
+
+	public void setQuantidadeAnexo(Long quantidadeAnexo) {
+		this.quantidadeAnexo = quantidadeAnexo;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -427,6 +440,8 @@ public class ProjetoDeTesteBean implements Serializable {
 		result = prime * result + ((modulos == null) ? 0 : modulos.hashCode());
 		result = prime * result
 				+ ((nomeDoProjeto == null) ? 0 : nomeDoProjeto.hashCode());
+		result = prime * result
+				+ ((quantidadeAnexo == null) ? 0 : quantidadeAnexo.hashCode());
 		result = prime
 				* result
 				+ ((quantidadeArtefato == null) ? 0 : quantidadeArtefato
@@ -556,6 +571,11 @@ public class ProjetoDeTesteBean implements Serializable {
 			if (other.nomeDoProjeto != null)
 				return false;
 		} else if (!nomeDoProjeto.equals(other.nomeDoProjeto))
+			return false;
+		if (quantidadeAnexo == null) {
+			if (other.quantidadeAnexo != null)
+				return false;
+		} else if (!quantidadeAnexo.equals(other.quantidadeAnexo))
 			return false;
 		if (quantidadeArtefato == null) {
 			if (other.quantidadeArtefato != null)
