@@ -12,22 +12,20 @@
 
 <h:body style="background-color: silver;">
 
-	<ui:insert name="cabecalho" />
-
 	<div style="background-color: black;">
-        	<p:separator/>
+         <p:separator/>
         		&nbsp;&nbsp;
-           		<h:graphicImage library="img" name="orion-logo.png" width="125" height="175"/>
-           		<h:graphicImage library="img" name="orion-nome.png" width="275" height="75"/>
-            <p:separator/>
-        </div>
-	<h:form>
+         	<h:graphicImage library="img" name="orion-logo.png" width="125" height="175"/>
+         	<h:graphicImage library="img" name="orion-nome.png" width="275" height="75"/>
+         <p:separator/>
+  	</div>
+  	<h:form>
 		<p:growl id="messages" />
 		<p:menubar>
 			<p:submenu label="Projeto" icon="ui-icon-person">
-				<p:menuitem value="Novo" url="./formulario/formulario-projeto.jsf" icon="ui-icon-document"/>
+				<p:menuitem value="Novo" url="formulario-projeto.jsf" icon="ui-icon-document"/>
 				<p:separator />
-				<p:menuitem value="Listar" url="./lista/lista-projeto.jsf" icon="ui-icon-grip-solid-horizontal"/>
+				<p:menuitem value="Listar" url="lista-projeto.jsf" icon="ui-icon-grip-solid-horizontal"/>
 			</p:submenu>
 		</p:menubar>
 	</h:form>

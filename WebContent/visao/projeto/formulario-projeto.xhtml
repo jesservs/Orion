@@ -12,7 +12,7 @@
 
 <h:body style="background-color: silver;">
 
-	<ui:composition template="../home-projeto.xhtml">
+	<ui:composition template="home-projeto.xhtml">
 
 		<ui:define name="corpo-projeto">
 
@@ -22,7 +22,7 @@
 
 				<p:separator />
 
-				&nbsp;&nbsp;<p:outputLabel value="Projeto de Teste" style="font-size: 30px; font-weight:bold; color: #FFFF66;" />
+				&nbsp;&nbsp;<p:outputLabel value="Projeto de Teste:" style="font-size: 30px; font-weight:bold; color: #FFFF66;" />
 
 				<p:separator />
 				
@@ -32,31 +32,31 @@
 
 				<h:messages />
 
-				<h:panelGrid columns="4">
+				<h:panelGrid columns="2">
 
-				<p:outputLabel value="Nome do Projeto" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.nomeDoProjeto}" />
+				<p:outputLabel value="Nome do Projeto:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.nomeDoProjeto}" style="width: 377px;"/>
 
-				<p:outputLabel value="Versão" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.versaoDoProjeto}" />
+				<p:outputLabel value="Versão:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.versaoDoProjeto}" style="width: 377px;"/>
 
-				<p:outputLabel value="Criador" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.criador.nome}" />
+				<p:outputLabel value="Criador:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.criador.nome}" style="width: 377px;"/>
 
-				<p:outputLabel value="Cliente" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.cliente}" />
+				<p:outputLabel value="Cliente:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.cliente}" style="width: 377px;"/>
 
-				<p:outputLabel value="Sistema" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.sistema}" />
+				<p:outputLabel value="Sistema:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.sistema}" style="width: 377px;"/>
 
- 				<p:outputLabel value="Modulo" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.modulos}" />
+ 				<p:outputLabel value="Modulo:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.modulos}" style="width: 377px;"/>
 
-				<p:outputLabel value="Data de Criação" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.dataCriacao}" />
+				<p:outputLabel value="Data de Criação:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.dataCriacao}" style="width: 377px;" disabled="true"/>
 
-				<p:outputLabel value="Data da Atualização" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.dataAtualizacao}" />
+				<p:outputLabel value="Data da Atualização:" />
+				<p:inputText value="#{padraoControle.projetoDeTeste.dataAtualizacao}" style="width: 377px;" disabled="true"/>
 
 				</h:panelGrid>
 
@@ -131,7 +131,7 @@
 			
 					<p:outputLabel value="Quantidade" />
 					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeAtor}" disabled="true"/>	
+					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeAtor}" disabled="true" style="width: 162px;"/>	
 			
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoAtor}" />
 						
@@ -143,7 +143,7 @@
 					
 					<p:outputLabel value="Quantidade" />
 				    
-				    <p:inputText value="#{padraoControle.projetoDeTeste.quantidadeDocumento}" disabled="true"/>
+				    <p:inputText value="#{padraoControle.projetoDeTeste.quantidadeDocumento}" disabled="true" style="width: 162px;"/>
 						
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoDocumento}" />
 						
@@ -155,7 +155,7 @@
 				
 					<p:outputLabel value="Quantidade" />
 
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeTeste}" disabled="true"/>
+					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeTeste}" disabled="true" style="width: 162px;" />
 					
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoTeste}" />
 						
@@ -167,7 +167,7 @@
 					
 					<p:outputLabel value="Quantidade" />
 
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeDiagrama}" disabled="true"/>
+					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeDiagrama}" disabled="true" style="width: 162px;"/>
 
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoDiagrama}" />
 						
@@ -179,7 +179,7 @@
 
 					<p:outputLabel value="Quantidade" />
 					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeArtefato}" disabled="true"/>
+					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeArtefato}" disabled="true" style="width: 162px;"/>
 
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoArtefato}" />
 						
@@ -191,7 +191,7 @@
 					
 					<p:outputLabel value="Quantidade:" />
 					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeModelo}" disabled="true"/>
+					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeModelo}" disabled="true" style="width: 162px;"/>
 					
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoModelo}" />
 						
@@ -203,7 +203,7 @@
 									
 					<p:outputLabel value="Quantidade:" />
 					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeAnexo}" disabled="true"/>
+					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeAnexo}" disabled="true" style="width: 162px;"/>
 
 					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoAnexo}" />
 						
@@ -216,8 +216,8 @@
 				<p:outputLabel value="Historico de Alteracao do Projeto:" />&nbsp;&nbsp;
 					
 				<p:commandButton value="Visualizar Historico" action="#{padraoControle.paginaListarHistoricoDeAlteracoes}" />
-				<br/>
-				<p:commandButton value="Concluir" action="#{padraoControle.salvar}" />
+
+				<p:commandButton value="Concluir" action="#{padraoControle.salvar}" style="float:right;"/>
 				
 				<p:separator />
 

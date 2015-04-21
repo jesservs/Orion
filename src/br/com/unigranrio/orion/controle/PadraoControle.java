@@ -1,6 +1,7 @@
 package br.com.unigranrio.orion.controle;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.bean.SessionScoped;
@@ -86,7 +87,7 @@ public class PadraoControle implements PadraoInterface<Object> {
 		this.projetoDeTeste = projetoDeTeste;
 		this.p = p;
 	}
-	
+
 	public String paginaNovoProjeto() {
 
 		this.logger.info("Controle Novo Projeto ");
@@ -357,17 +358,25 @@ public class PadraoControle implements PadraoInterface<Object> {
 
 			List<ProjetoDeTesteBean> ls = new ArrayList<ProjetoDeTesteBean>();
 
-			for (Object o : p.listar()) {
+			Iterator<Object> itr = this.p.listar().iterator();
+
+			while (itr.hasNext()) {
+
+				Object o = itr.next();
 
 				if (o instanceof ProjetoDeTesteBean) {
 
-					ls.add((ProjetoDeTesteBean) o);
+					this.projeto = (ProjetoDeTesteBean) o;
+
+					ls.add(this.projeto);
 
 				}
 
 			}
 
-			return new ListDataModel<ProjetoDeTesteBean>(ls);
+			this.projetos = new ListDataModel<ProjetoDeTesteBean>(ls);
+
+			return this.projetos;
 
 		} catch (Exception e) {
 
