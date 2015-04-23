@@ -12,11 +12,12 @@
 
 <h:body style="background-color: silver;">
 
-	<ui:composition template="home-projeto.xhtml">
+	<ui:composition template="./home-projeto.xhtml">
 
 		<ui:define name="corpo-projeto">
 
-			<div style="background-color: #FFFFC2;">
+	
+				<div style="background-color: #FFFF66;">
 
 				<div style="background-color: black;">
 
@@ -31,42 +32,44 @@
 				<h:form>
 
 				<h:messages />
-
+				
+				
+				<h:inputHidden value="#{padraoControle.projeto.idProjetoDeTeste}" />
+				
 				<h:panelGrid columns="2">
 
 				<p:outputLabel value="Nome do Projeto:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.nomeDoProjeto}" style="width: 377px;"/>
+				<p:inputText value="#{padraoControle.projeto.nomeDoProjeto}" style="width: 377px;"/>
 
 				<p:outputLabel value="Versão:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.versaoDoProjeto}" style="width: 377px;"/>
+				<p:inputText value="#{padraoControle.projeto.versaoDoProjeto}" style="width: 377px;"/>
 
 				<p:outputLabel value="Criador:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.criador.nome}" style="width: 377px;"/>
+				<p:inputText value="#{padraoControle.nome}" style="width: 377px;"/>
 
 				<p:outputLabel value="Cliente:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.cliente}" style="width: 377px;"/>
+				<p:inputText value="#{padraoControle.projeto.cliente}" style="width: 377px;"/>
 
 				<p:outputLabel value="Sistema:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.sistema}" style="width: 377px;"/>
+				<p:inputText value="#{padraoControle.projeto.sistema}" style="width: 377px;"/>
 
  				<p:outputLabel value="Modulo:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.modulos}" style="width: 377px;"/>
+				<p:inputText value="#{padraoControle.projeto.modulos}" style="width: 377px;"/>
 
 				<p:outputLabel value="Data de Criação:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.dataCriacao}" style="width: 377px;" disabled="true"/>
+				<p:inputText value="#{padraoControle.projeto.dataCriacao}" style="width: 377px;" disabled="true"/>
 
 				<p:outputLabel value="Data da Atualização:" />
-				<p:inputText value="#{padraoControle.projetoDeTeste.dataAtualizacao}" style="width: 377px;" disabled="true"/>
+				<p:inputText value="#{padraoControle.projeto.dataAtualizacao}" style="width: 377px;" disabled="true"/>
 
 				</h:panelGrid>
 
 				<p:separator/>
 
-
 				<h:panelGrid columns="2">
 				
 				<p:outputLabel value="Fase:"/>
-				<p:selectOneMenu value="#{padraoControle.projetoDeTeste.fase}" style="width: 400px;">
+				<p:selectOneMenu value="#{padraoControle.projeto.fase}" style="width: 400px;">
 					<f:selectItem itemLabel="" itemValue="" />
 					<f:selectItem itemLabel="Planejamento" itemValue="Planejamento" />
 					<f:selectItem itemLabel="Preparação" itemValue="Preparação" />
@@ -76,7 +79,7 @@
 			    </p:selectOneMenu>
 
 				<p:outputLabel value="Gerenciado:" />
-				<p:selectOneMenu value="#{padraoControle.projetoDeTeste.faseDoProcesso}" style="width: 400px;">
+				<p:selectOneMenu value="#{padraoControle.projeto.gerenciado}" style="width: 400px;">
 					<f:selectItem itemLabel="" itemValue="" />
 					<f:selectItem itemLabel="Gerência de requisitos" itemValue="Gerência de requisitos" />
 					<f:selectItem itemLabel="Planejamento de projeto" itemValue="Planejamento de projeto" />
@@ -87,7 +90,7 @@
 				</p:selectOneMenu>
 				
 				<p:outputLabel value="Definido:" />
-				<p:selectOneMenu value="#{padraoControle.projetoDeTeste.faseDoProcesso}" style="width: 400px;">
+				<p:selectOneMenu value="#{padraoControle.projeto.definido}" style="width: 400px;">
 						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Desenvolvimento de requisitos" itemValue="Desenvolvimento de requisitos" />
 						<f:selectItem itemLabel="Solução técnica" itemValue="Solução técnica" />
@@ -106,14 +109,14 @@
 					</p:selectOneMenu>
 				
 					<p:outputLabel value="Quantitativamente:" />
-					<p:selectOneMenu value="#{padraoControle.projetoDeTeste.faseDoProcesso}" style="width: 400px;">
+					<p:selectOneMenu value="#{padraoControle.projeto.quantitativamente}" style="width: 400px;">
 						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Desempenho do processo organizacional" itemValue="Desempenho do processo organizacional" />
 						<f:selectItem itemLabel="Gerência quantitativa de projeto" itemValue="Gerência quantitativa de projeto" />
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Otimizado:" />
-					<p:selectOneMenu value="#{padraoControle.projetoDeTeste.faseDoProcesso}" style="width: 400px;">
+					<p:selectOneMenu value="#{padraoControle.projeto.otimizado}" style="width: 400px;">
 						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Gerência quantitativa de projeto" itemValue="Gerência quantitativa de projeto" />
 						<f:selectItem itemLabel="Análise e resolução de causas" itemValue="Análise e resolução de causas" />
@@ -122,108 +125,14 @@
 				</h:panelGrid>				
 				
 				<p:separator />
+					
+				&nbsp;&nbsp;<p:commandButton value="Concluir" action="#{padraoControle.paginaSalvarProjeto}"/>
 				
-				<h:panelGrid columns="6">
-				
-					<p:outputLabel value="Atores:"/>
-					
-					<h:outputText value="" />
-			
-					<p:outputLabel value="Quantidade" />
-					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeAtor}" disabled="true" style="width: 162px;"/>	
-			
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoAtor}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarAtores}" />
-					
-					<p:outputLabel value="Documentos:"/>
-					
-					<h:outputText value="" />
-					
-					<p:outputLabel value="Quantidade" />
-				    
-				    <p:inputText value="#{padraoControle.projetoDeTeste.quantidadeDocumento}" disabled="true" style="width: 162px;"/>
-						
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoDocumento}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarDocumentos}" />
-					
-					<p:outputLabel value="Testes:" />
-				
-					<h:outputText value="" />
-				
-					<p:outputLabel value="Quantidade" />
-
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeTeste}" disabled="true" style="width: 162px;" />
-					
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoTeste}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarTestes}" />
-				
-					<p:outputLabel value="Diagramas:" />
-					
-					<h:outputText value="" />
-					
-					<p:outputLabel value="Quantidade" />
-
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeDiagrama}" disabled="true" style="width: 162px;"/>
-
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoDiagrama}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarDiagramas}" />
-
-					<p:outputLabel value="Artefatos:" />
-					
-					<h:outputText value="" />
-
-					<p:outputLabel value="Quantidade" />
-					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeArtefato}" disabled="true" style="width: 162px;"/>
-
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoArtefato}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarArtefatos}" />
-					
-					<p:outputLabel value="Modelos:" />
-					
-					<h:outputText value="" />
-					
-					<p:outputLabel value="Quantidade:" />
-					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeModelo}" disabled="true" style="width: 162px;"/>
-					
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoModelo}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarModelos}" />
-					
-					<p:outputLabel value="Anexos:" />
-					
-					<h:outputText value="" />			
-									
-					<p:outputLabel value="Quantidade:" />
-					
-					<p:inputText value="#{padraoControle.projetoDeTeste.quantidadeAnexo}" disabled="true" style="width: 162px;"/>
-
-					<p:commandButton value="Novo" action="#{padraoControle.paginaNovoAnexo}" />
-						
-					<p:commandButton value="Listar" action="#{padraoControle.paginaListarAnexos}" />
-					
-				</h:panelGrid>
-				
-				<p:separator />	
-				
-				<p:outputLabel value="Historico de Alteracao do Projeto:" />&nbsp;&nbsp;
-					
-				<p:commandButton value="Visualizar Historico" action="#{padraoControle.paginaListarHistoricoDeAlteracoes}" />
-
-				<p:commandButton value="Concluir" action="#{padraoControle.salvar}" style="float:right;"/>
-				
-				<p:separator />
-
 				</h:form>
 
-			</div>
+				<p:separator />
+
+				</div>
 
 		</ui:define>
 

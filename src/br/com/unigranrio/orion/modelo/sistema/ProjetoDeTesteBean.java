@@ -62,6 +62,18 @@ public class ProjetoDeTesteBean implements Serializable {
 	@Column(name = "vs_sistema")
 	private String sistema;
 
+	@Column(name = "vs_gerenciado")
+	private String gerenciado;
+
+	@Column(name = "vs_definido")
+	private String definido;
+
+	@Column(name = "vs_quantitativamente")
+	private String quantitativamente;
+
+	@Column(name = "vs_otimizado")
+	private String otimizado;
+
 	@Column(name = "vs_cliente")
 	private String cliente;
 
@@ -124,8 +136,9 @@ public class ProjetoDeTesteBean implements Serializable {
 			Long codigoAtor, String descricao, Date dataCriacao,
 			Date dataAtualizacao, String fase, String faseDoProcesso,
 			AtorBean criador, List<HistoricoAlteracaoBean> historicoAlteracao,
-			String sistema, String cliente, String modulos,
-			String nomeDoProjeto, Double versaoDoProjeto,
+			String sistema, String gerenciado, String definido,
+			String quantitativamente, String otimizado, String cliente,
+			String modulos, String nomeDoProjeto, Double versaoDoProjeto,
 			List<DocumentoBean> documentos, List<AtorBean> envolvidos,
 			List<DiagramaBean> diagramas, List<ArtefatoBean> artefatos,
 			List<ModeloBean> modelos, List<TesteBean> testes,
@@ -145,6 +158,10 @@ public class ProjetoDeTesteBean implements Serializable {
 		this.criador = criador;
 		this.historicoAlteracao = historicoAlteracao;
 		this.sistema = sistema;
+		this.gerenciado = gerenciado;
+		this.definido = definido;
+		this.quantitativamente = quantitativamente;
+		this.otimizado = otimizado;
 		this.cliente = cliente;
 		this.modulos = modulos;
 		this.nomeDoProjeto = nomeDoProjeto;
@@ -398,6 +415,38 @@ public class ProjetoDeTesteBean implements Serializable {
 		this.quantidadeAnexo = quantidadeAnexo;
 	}
 
+	public String getGerenciado() {
+		return gerenciado;
+	}
+
+	public void setGerenciado(String gerenciado) {
+		this.gerenciado = gerenciado;
+	}
+
+	public String getDefinido() {
+		return definido;
+	}
+
+	public void setDefinido(String definido) {
+		this.definido = definido;
+	}
+
+	public String getQuantitativamente() {
+		return quantitativamente;
+	}
+
+	public void setQuantitativamente(String quantitativamente) {
+		this.quantitativamente = quantitativamente;
+	}
+
+	public String getOtimizado() {
+		return otimizado;
+	}
+
+	public void setOtimizado(String otimizado) {
+		this.otimizado = otimizado;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -419,6 +468,8 @@ public class ProjetoDeTesteBean implements Serializable {
 		result = prime * result
 				+ ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
 		result = prime * result
+				+ ((definido == null) ? 0 : definido.hashCode());
+		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result
 				+ ((diagramas == null) ? 0 : diagramas.hashCode());
@@ -429,6 +480,8 @@ public class ProjetoDeTesteBean implements Serializable {
 		result = prime * result + ((fase == null) ? 0 : fase.hashCode());
 		result = prime * result
 				+ ((faseDoProcesso == null) ? 0 : faseDoProcesso.hashCode());
+		result = prime * result
+				+ ((gerenciado == null) ? 0 : gerenciado.hashCode());
 		result = prime
 				* result
 				+ ((historicoAlteracao == null) ? 0 : historicoAlteracao
@@ -440,6 +493,8 @@ public class ProjetoDeTesteBean implements Serializable {
 		result = prime * result + ((modulos == null) ? 0 : modulos.hashCode());
 		result = prime * result
 				+ ((nomeDoProjeto == null) ? 0 : nomeDoProjeto.hashCode());
+		result = prime * result
+				+ ((otimizado == null) ? 0 : otimizado.hashCode());
 		result = prime * result
 				+ ((quantidadeAnexo == null) ? 0 : quantidadeAnexo.hashCode());
 		result = prime
@@ -461,6 +516,10 @@ public class ProjetoDeTesteBean implements Serializable {
 				+ ((quantidadeModelo == null) ? 0 : quantidadeModelo.hashCode());
 		result = prime * result
 				+ ((quantidadeTeste == null) ? 0 : quantidadeTeste.hashCode());
+		result = prime
+				* result
+				+ ((quantitativamente == null) ? 0 : quantitativamente
+						.hashCode());
 		result = prime * result + ((sistema == null) ? 0 : sistema.hashCode());
 		result = prime * result + ((testes == null) ? 0 : testes.hashCode());
 		result = prime * result
@@ -517,6 +576,11 @@ public class ProjetoDeTesteBean implements Serializable {
 				return false;
 		} else if (!dataCriacao.equals(other.dataCriacao))
 			return false;
+		if (definido == null) {
+			if (other.definido != null)
+				return false;
+		} else if (!definido.equals(other.definido))
+			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
@@ -547,6 +611,11 @@ public class ProjetoDeTesteBean implements Serializable {
 				return false;
 		} else if (!faseDoProcesso.equals(other.faseDoProcesso))
 			return false;
+		if (gerenciado == null) {
+			if (other.gerenciado != null)
+				return false;
+		} else if (!gerenciado.equals(other.gerenciado))
+			return false;
 		if (historicoAlteracao == null) {
 			if (other.historicoAlteracao != null)
 				return false;
@@ -571,6 +640,11 @@ public class ProjetoDeTesteBean implements Serializable {
 			if (other.nomeDoProjeto != null)
 				return false;
 		} else if (!nomeDoProjeto.equals(other.nomeDoProjeto))
+			return false;
+		if (otimizado == null) {
+			if (other.otimizado != null)
+				return false;
+		} else if (!otimizado.equals(other.otimizado))
 			return false;
 		if (quantidadeAnexo == null) {
 			if (other.quantidadeAnexo != null)
@@ -606,6 +680,11 @@ public class ProjetoDeTesteBean implements Serializable {
 			if (other.quantidadeTeste != null)
 				return false;
 		} else if (!quantidadeTeste.equals(other.quantidadeTeste))
+			return false;
+		if (quantitativamente == null) {
+			if (other.quantitativamente != null)
+				return false;
+		} else if (!quantitativamente.equals(other.quantitativamente))
 			return false;
 		if (sistema == null) {
 			if (other.sistema != null)
