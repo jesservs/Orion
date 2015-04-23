@@ -34,7 +34,6 @@ public class ProjetoDeTestePersistencia implements
 
 		this.sessao = sessao;
 
-		this.transacao = this.sessao.getTransaction();
 	}
 
 	@Override
@@ -44,11 +43,7 @@ public class ProjetoDeTestePersistencia implements
 
 			this.logger.info("Persistencia: Salvar Projeto De Teste.");
 
-			this.transacao.begin();
-
 			this.sessao.save(objeto);
-
-			this.transacao.commit();
 
 		} catch (Exception e) {
 
@@ -56,8 +51,6 @@ public class ProjetoDeTestePersistencia implements
 
 			this.logger.info("Persistencia: Salvar Projeto De Teste."
 					+ e.getMessage());
-
-			this.transacao.rollback();
 
 		}
 
@@ -68,13 +61,9 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.transacao.begin();
-
 			this.logger.info("Persistencia: Atualizar Projeto De Teste.");
 
 			this.sessao.update(objeto);
-
-			this.transacao.commit();
 
 		} catch (Exception e) {
 
@@ -82,8 +71,6 @@ public class ProjetoDeTestePersistencia implements
 
 			this.logger.info("Persistencia: Atualizar Projeto De Teste."
 					+ e.getMessage());
-
-			this.transacao.rollback();
 
 		}
 
@@ -94,13 +81,10 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.transacao.begin();
 
 			this.logger.info("Persistencia: Remover Projeto De Teste.");
 
 			this.sessao.delete(objeto);
-
-			this.transacao.commit();
 
 		} catch (Exception e) {
 
@@ -109,7 +93,6 @@ public class ProjetoDeTestePersistencia implements
 			this.logger.info("Persistencia: Remover Projeto De Teste."
 					+ e.getMessage());
 
-			this.transacao.rollback();
 
 		}
 

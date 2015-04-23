@@ -63,7 +63,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	public String paginaAtualizarProjeto() {
 
-		this.logger.info("Controle Atualização Projeto ");
+		this.logger.info("Controle: Atualização Projeto De Teste.");
 
 		this.projeto = this.projetos.getRowData();
 
@@ -75,7 +75,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 		try {
 
-			this.logger.info("Controle Busca Por Projeto ");
+			this.logger.info("Controle: Busca Por Projeto De Teste.");
 
 			this.projeto = (ProjetoDeTesteBean) this.buscar(this.projeto,
 					this.idParametro);
@@ -86,7 +86,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 			e.printStackTrace();
 
-			this.logger.error("Controle Busca Por Projeto ");
+			this.logger.error("Controle: Busca Por Projeto De Teste.");
 
 			return "/visao/projeto/lista-projeto";
 
@@ -98,7 +98,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 		try {
 
-			this.logger.info("Controle Projeto Excluido ");
+			this.logger.info("Controle: Excluido Projeto De Teste.");
 
 			this.projeto = this.projetos.getRowData();
 
@@ -110,7 +110,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 			e.printStackTrace();
 
-			this.logger.error("Controle Projeto Excluido ");
+			this.logger.error("Controle: Excluido Projeto De Teste. ");
 
 			return "/visao/projeto/lista-projeto";
 		}
@@ -119,7 +119,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	public String paginaListarProjetos() {
 
-		this.logger.info("Controle Lista de Projetos ");
+		this.logger.info("Controle: Lista Projeto De Teste. ");
 
 		this.projetos = this.getListaProjetos();
 
@@ -129,7 +129,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	public String paginaNovoProjeto() {
 
-		this.logger.info("Controle Novo Projeto ");
+		this.logger.info("Controle: Novo Projeto De Teste.");
 
 		this.projeto = new ProjetoDeTesteBean();
 
@@ -144,7 +144,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 			if (this.projeto.getIdProjetoDeTeste() == 0
 					|| this.projeto.getIdProjetoDeTeste() == null) {
 
-				this.logger.info("Controle Projeto Cadastrado");
+				this.logger.info("Controle: Cadastro Projeto De Teste.");
 
 				this.projeto.setDataCriacao(new Date());
 
@@ -158,7 +158,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 			} else {
 
-				this.logger.info("Controle Projeto Atualizado ");
+				this.logger.info("Controle: Atualização Projeto De Teste.");
 
 				this.projeto.setDataAtualizacao(new Date());
 
@@ -174,7 +174,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 			e.printStackTrace();
 
-			this.logger.error("Controle Atualização ou Cadastro Projeto ");
+			this.logger.error("Controle: Atualização ou Cadastro Projeto De Teste.");
 
 			return "/visao/projeto/formulario-projeto";
 
@@ -185,7 +185,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public List<ProjetoDeTesteBean> listar() throws Exception {
 
-		this.logger.info("Controle Listar");
+		this.logger.info("Controle: Listar Projeto De Teste.");
 
 		return this.p.listar();
 
@@ -194,7 +194,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public void remover(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Controle Remover");
+		this.logger.info("Controle: Remover Projeto De Teste.");
 
 		this.p.remover(objeto);
 
@@ -203,7 +203,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public void salvar(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Controle Salvar");
+		this.logger.info("Controle: Salvar Projeto De Teste.");
 
 		this.p.salvar(objeto);
 
@@ -212,7 +212,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public void atualizar(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Controle Atualizar");
+		this.logger.info("Controle: Atualizar Projeto De Teste.");
 
 		this.p.atualizar(objeto);
 
@@ -222,7 +222,7 @@ public class PadraoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	public ProjetoDeTesteBean buscar(ProjetoDeTesteBean objeto, Long id)
 			throws Exception {
 
-		this.logger.info("Controle Buscar");
+		this.logger.info("Controle: Buscar Projeto De Teste.");
 
 		return this.p.buscar(objeto, id);
 

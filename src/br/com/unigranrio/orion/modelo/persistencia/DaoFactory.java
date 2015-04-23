@@ -10,7 +10,7 @@ public class DaoFactory implements Serializable {
 
 	private static final long serialVersionUID = -1945446498579680241L;
 
-	public static PadraoInterface<ProjetoDeTesteBean> projetoDeTesteDAO() {
+	public ProjetoDeTestePersistencia projetoDeTesteDAO() {
 		
 		ProjetoDeTestePersistencia p = new ProjetoDeTestePersistencia();
 		
