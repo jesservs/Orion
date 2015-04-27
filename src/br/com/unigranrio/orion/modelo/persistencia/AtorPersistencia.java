@@ -33,6 +33,8 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 	}
 
 	public void novaSessao(Session sessao) {
+		
+		this.logger.info("Persistencia: Nova Sessao. "+ sessao.toString());
 
 		this.sessao = sessao;
 
@@ -45,7 +47,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Salvar Projeto De Teste.");
+			this.logger.info("Persistencia: Salvar. " + objeto.toString());
 
 			this.transacao.begin();
 
@@ -59,7 +61,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar Projeto De Teste."
+			this.logger.info("Persistencia: Salvar." + objeto.toString() + " "
 					+ e.getMessage());
 
 		}
@@ -71,7 +73,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Atualizar Projeto De Teste.");
+			this.logger.info("Persistencia: Atualizar. " + objeto.toString());
 
 			this.transacao.begin();
 
@@ -85,7 +87,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar Projeto De Teste."
+			this.logger.info("Persistencia: Atualizar. " + objeto.toString() + " "
 					+ e.getMessage());
 
 		}
@@ -97,7 +99,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Remover Projeto De Teste.");
+			this.logger.info("Persistencia: Remover. " + objeto.toString());
 
 			this.transacao.begin();
 
@@ -111,7 +113,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Remover Projeto De Teste."
+			this.logger.info("Persistencia: Remover. " + objeto.toString() + " "
 					+ e.getMessage());
 
 		}
@@ -123,7 +125,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Buscar Projeto De Teste.");
+			this.logger.info("Persistencia: Buscar. " + objeto.toString());
 
 			this.ator = (AtorBean) this.sessao.get(AtorBean.class, id);
 
@@ -133,7 +135,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia Buscar: Projeto De Teste."
+			this.logger.info("Persistencia: Buscar. " + objeto.toString() + " "
 					+ e.getMessage());
 
 			return null;
@@ -147,7 +149,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Listar Projeto De Teste.");
+			this.logger.info("Persistencia: Listar.");
 
 			this.atores = (List<AtorBean>) this.sessao.createCriteria(
 					AtorBean.class).list();
@@ -158,7 +160,7 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar Projeto De Teste."
+			this.logger.info("Persistencia: Listar."
 					+ e.getMessage());
 
 			return null;
