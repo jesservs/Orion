@@ -33,7 +33,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	private String tipoParametro;
 
 	private Long quantidadeProjeto;
-
+	
 	private String nome;
 
 	private ProjetoDeTesteServico p = new ProjetoDeTesteServico();
@@ -55,7 +55,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	private DataModel<ProjetoDeTesteBean> projetos = new ListDataModel<ProjetoDeTesteBean>();
 
 	public ProjetoControle() {
-
+		
 	}
 
 	// Parte Pertencente ao Documento.
@@ -63,8 +63,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 		try {
 
-			if (this.documento.getIdDocumento() == 0
-					|| this.documento.getIdDocumento() == null) {
+			if (this.documento.getIdDocumento() == 0 || this.documento.getIdDocumento() == null) {
 
 				this.logger.info("Controle: Cadastro Documento.");
 

@@ -130,7 +130,7 @@
 				
 					<p:outputLabel value="Atores:"/>
 					
-					<h:outputText value="" />
+					<h:outputText />
 			
 					<p:outputLabel value="Quantidade" />
 					
@@ -288,6 +288,12 @@
 					
 				</h:panelGrid>
 				
+				<p:separator />
+				
+				<p:outputLabel value="Descrição: (Opicional)."/>
+				
+				 <p:editor widgetVar="editorWidget" value="#{projetoControle.projeto.descricao}" width="600" height="200"/>
+ 
 				<p:separator />
 					
 				&nbsp;&nbsp;<p:commandButton value="Concluir" action="#{projetoControle.paginaSalvarProjeto}"/>

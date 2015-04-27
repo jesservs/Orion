@@ -18,11 +18,13 @@
 		<mapping class="br.com.unigranrio.orion.modelo.usuario.AtorBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.ArtefatoBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.CasoDeTesteBean" />
+		<mapping class="br.com.unigranrio.orion.modelo.sistema.ClassificacaoDeImpactoBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.DiagramaBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.DocumentoBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.EspecificacaoDeCasoDeTesteBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.EspecificacaoDeProjetoDeTesteBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.EstimativaDeCustoDeTesteBean" />
+		<mapping class="br.com.unigranrio.orion.modelo.sistema.EstudoDeViabilidadeBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.HistoricoAlteracaoBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.HistoricoBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.ModeloBean" />
