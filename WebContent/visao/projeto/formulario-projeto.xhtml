@@ -17,7 +17,7 @@
 		<ui:define name="corpo-projeto">
 
 	
-				<div style="background-color: #FFFF66;">
+				<div style="background-color: #FFFFB2;">
 
 				<div style="background-color: black;">
 
@@ -138,7 +138,13 @@
 			
 					<p:commandButton value="Novo" type="button" onclick="PF('dlg1').show();">
 
-						<p:dialog header="Formulario Ator" widgetVar="dlg1" modal="true" height="400" resizable="false" >
+						<p:dialog widgetVar="dlg1" modal="true" height="400" resizable="false"  style="background-color: #FFFFB2;">
+    						
+    						<div style="background-color: black;">
+    						<p:separator/>
+    						&nbsp;<p:outputLabel value="Formulario Ator:" style="font-size: 30px; font-weight:bold; color: #FFFF66;" />
+    						<p:separator/>
+    						</div>
     						
     						<h:form>
 							
@@ -146,7 +152,7 @@
 							
 							<h:inputHidden value="#{projetoControle.ator.idAtor}" />
 							
-							<h:panelGrid columns="2">
+							<h:panelGrid columns="2" style="background-color: #FFFFB2;">
 								
 								<p:outputLabel value="Matricula:" />
 								<p:inputText value="#{projetoControle.ator.matricula}" style="width: 377px;"/>
@@ -226,7 +232,13 @@
 						
 					<p:commandButton value="Listar" type="button" onclick="PF('dlg2').show();" >
 						
-						<p:dialog header="Lista Atores" widgetVar="dlg2" modal="true" height="400" >
+						<p:dialog widgetVar="dlg2" modal="true" height="400" style="background-color: #FFFFB2;">
+						
+							<div style="background-color: black;">
+    						<p:separator/>
+    						&nbsp;<p:outputLabel value="Lista de Atores:" style="font-size: 30px; font-weight:bold; color: #FFFF66;" />
+    						<p:separator/>
+    						</div>
 						
 							<h:form>
 							
