@@ -8,20 +8,19 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
-import br.com.unigranrio.orion.util.HibernateUtil;
+import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
-public class ProjetoDeTestePersistencia implements
-		PadraoInterface<ProjetoDeTesteBean>, Serializable {
+public class AtorPersistencia implements PadraoInterface<AtorBean>,
+		Serializable {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private static final long serialVersionUID = -6813121635312887948L;
 
-	private ProjetoDeTesteBean projeto;
+	private AtorBean ator;
 
-	private List<ProjetoDeTesteBean> projetos;
+	private List<AtorBean> atores;
 
 	private StringBuilder sql;
 
@@ -29,7 +28,7 @@ public class ProjetoDeTestePersistencia implements
 
 	private Transaction transacao;
 
-	public ProjetoDeTestePersistencia() {
+	public AtorPersistencia() {
 
 	}
 
@@ -42,7 +41,7 @@ public class ProjetoDeTestePersistencia implements
 	}
 
 	@Override
-	public void salvar(ProjetoDeTesteBean objeto) throws Exception {
+	public void salvar(AtorBean objeto) throws Exception {
 
 		try {
 
@@ -68,7 +67,7 @@ public class ProjetoDeTestePersistencia implements
 	}
 
 	@Override
-	public void atualizar(ProjetoDeTesteBean objeto) throws Exception {
+	public void atualizar(AtorBean objeto) throws Exception {
 
 		try {
 
@@ -94,7 +93,7 @@ public class ProjetoDeTestePersistencia implements
 	}
 
 	@Override
-	public void remover(ProjetoDeTesteBean objeto) throws Exception {
+	public void remover(AtorBean objeto) throws Exception {
 
 		try {
 
@@ -120,17 +119,15 @@ public class ProjetoDeTestePersistencia implements
 	}
 
 	@Override
-	public ProjetoDeTesteBean buscar(ProjetoDeTesteBean objeto, Long id)
-			throws Exception {
+	public AtorBean buscar(AtorBean objeto, Long id) throws Exception {
 
 		try {
 
 			this.logger.info("Persistencia: Buscar Projeto De Teste.");
 
-			this.projeto = (ProjetoDeTesteBean) this.sessao.get(
-					ProjetoDeTesteBean.class, id);
+			this.ator = (AtorBean) this.sessao.get(AtorBean.class, id);
 
-			return this.projeto;
+			return this.ator;
 
 		} catch (Exception e) {
 
@@ -146,16 +143,16 @@ public class ProjetoDeTestePersistencia implements
 	}
 
 	@Override
-	public List<ProjetoDeTesteBean> listar() throws Exception {
+	public List<AtorBean> listar() throws Exception {
 
 		try {
 
 			this.logger.info("Persistencia: Listar Projeto De Teste.");
 
-			this.projetos = (List<ProjetoDeTesteBean>) this.sessao
-					.createCriteria(ProjetoDeTesteBean.class).list();
+			this.atores = (List<AtorBean>) this.sessao.createCriteria(
+					AtorBean.class).list();
 
-			return this.projetos;
+			return this.atores;
 
 		} catch (Exception e) {
 
@@ -194,20 +191,20 @@ public class ProjetoDeTestePersistencia implements
 		this.transacao = transacao;
 	}
 
-	public ProjetoDeTesteBean getProjeto() {
-		return projeto;
+	public AtorBean getAtor() {
+		return ator;
 	}
 
-	public void setProjeto(ProjetoDeTesteBean projeto) {
-		this.projeto = projeto;
+	public void setAtor(AtorBean ator) {
+		this.ator = ator;
 	}
 
-	public List<ProjetoDeTesteBean> getProjetos() {
-		return projetos;
+	public List<AtorBean> getAtores() {
+		return atores;
 	}
 
-	public void setProjetos(List<ProjetoDeTesteBean> projetos) {
-		this.projetos = projetos;
+	public void setAtores(List<AtorBean> atores) {
+		this.atores = atores;
 	}
 
 }

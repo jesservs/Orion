@@ -34,33 +34,33 @@
 				<h:messages />
 				
 				
-				<h:inputHidden value="#{padraoControle.projeto.idProjetoDeTeste}" />
+				<h:inputHidden value="#{projetoControle.projeto.idProjetoDeTeste}" />
 				
 				<h:panelGrid columns="2">
 
 				<p:outputLabel value="Nome do Projeto:" />
-				<p:inputText value="#{padraoControle.projeto.nomeDoProjeto}" style="width: 377px;"/>
+				<p:inputText value="#{projetoControle.projeto.nomeDoProjeto}" style="width: 377px;"/>
 
 				<p:outputLabel value="Versão:" />
-				<p:inputText value="#{padraoControle.projeto.versaoDoProjeto}" style="width: 377px;"/>
+				<p:inputText value="#{projetoControle.projeto.versaoDoProjeto}" style="width: 377px;"/>
 
 				<p:outputLabel value="Criador:" />
-				<p:inputText value="#{padraoControle.nome}" style="width: 377px;"/>
+				<p:inputText value="#{projetoControle.nome}" style="width: 377px;"/>
 
 				<p:outputLabel value="Cliente:" />
-				<p:inputText value="#{padraoControle.projeto.cliente}" style="width: 377px;"/>
+				<p:inputText value="#{projetoControle.projeto.cliente}" style="width: 377px;"/>
 
 				<p:outputLabel value="Sistema:" />
-				<p:inputText value="#{padraoControle.projeto.sistema}" style="width: 377px;"/>
+				<p:inputText value="#{projetoControle.projeto.sistema}" style="width: 377px;"/>
 
  				<p:outputLabel value="Modulo:" />
-				<p:inputText value="#{padraoControle.projeto.modulos}" style="width: 377px;"/>
+				<p:inputText value="#{projetoControle.projeto.modulos}" style="width: 377px;"/>
 
 				<p:outputLabel value="Data de Criação:" />
-				<p:inputText value="#{padraoControle.projeto.dataCriacao}" style="width: 377px;" disabled="true"/>
+				<p:inputText value="#{projetoControle.projeto.dataCriacao}" style="width: 377px;" disabled="true"/>
 
 				<p:outputLabel value="Data da Atualização:" />
-				<p:inputText value="#{padraoControle.projeto.dataAtualizacao}" style="width: 377px;" disabled="true"/>
+				<p:inputText value="#{projetoControle.projeto.dataAtualizacao}" style="width: 377px;" disabled="true"/>
 
 				</h:panelGrid>
 
@@ -69,7 +69,7 @@
 				<h:panelGrid columns="2">
 				
 				<p:outputLabel value="Fase:"/>
-				<p:selectOneMenu value="#{padraoControle.projeto.fase}" style="width: 400px;">
+				<p:selectOneMenu value="#{projetoControle.projeto.fase}" style="width: 400px;">
 					<f:selectItem itemLabel="" itemValue="" />
 					<f:selectItem itemLabel="Planejamento" itemValue="Planejamento" />
 					<f:selectItem itemLabel="Preparação" itemValue="Preparação" />
@@ -79,7 +79,7 @@
 			    </p:selectOneMenu>
 
 				<p:outputLabel value="Gerenciado:" />
-				<p:selectOneMenu value="#{padraoControle.projeto.gerenciado}" style="width: 400px;">
+				<p:selectOneMenu value="#{projetoControle.projeto.gerenciado}" style="width: 400px;">
 					<f:selectItem itemLabel="" itemValue="" />
 					<f:selectItem itemLabel="Gerência de requisitos" itemValue="Gerência de requisitos" />
 					<f:selectItem itemLabel="Planejamento de projeto" itemValue="Planejamento de projeto" />
@@ -90,7 +90,7 @@
 				</p:selectOneMenu>
 				
 				<p:outputLabel value="Definido:" />
-				<p:selectOneMenu value="#{padraoControle.projeto.definido}" style="width: 400px;">
+				<p:selectOneMenu value="#{projetoControle.projeto.definido}" style="width: 400px;">
 						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Desenvolvimento de requisitos" itemValue="Desenvolvimento de requisitos" />
 						<f:selectItem itemLabel="Solução técnica" itemValue="Solução técnica" />
@@ -109,14 +109,14 @@
 					</p:selectOneMenu>
 				
 					<p:outputLabel value="Quantitativamente:" />
-					<p:selectOneMenu value="#{padraoControle.projeto.quantitativamente}" style="width: 400px;">
+					<p:selectOneMenu value="#{projetoControle.projeto.quantitativamente}" style="width: 400px;">
 						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Desempenho do processo organizacional" itemValue="Desempenho do processo organizacional" />
 						<f:selectItem itemLabel="Gerência quantitativa de projeto" itemValue="Gerência quantitativa de projeto" />
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Otimizado:" />
-					<p:selectOneMenu value="#{padraoControle.projeto.otimizado}" style="width: 400px;">
+					<p:selectOneMenu value="#{projetoControle.projeto.otimizado}" style="width: 400px;">
 						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Gerência quantitativa de projeto" itemValue="Gerência quantitativa de projeto" />
 						<f:selectItem itemLabel="Análise e resolução de causas" itemValue="Análise e resolução de causas" />
@@ -125,8 +125,119 @@
 				</h:panelGrid>				
 				
 				<p:separator />
+				
+				<h:panelGrid columns="6">
+				
+					<p:outputLabel value="Atores:"/>
 					
-				&nbsp;&nbsp;<p:commandButton value="Concluir" action="#{padraoControle.paginaSalvarProjeto}"/>
+					<h:outputText value="" />
+			
+					<p:outputLabel value="Quantidade" />
+					
+					<p:inputText value="#{projetoControle.projeto.quantidadeAtor}" disabled="true" style="width: 162px;"/>	
+			
+					<p:commandButton value="Novo" type="button" onclick="PF('dlg1').show();">
+
+						<p:dialog header="Cadastro Ator" widgetVar="dlg1" modal="true" height="400" resizable="false">
+    						
+							<p:separator/>
+
+    						<h:form>
+							
+							<h:messages />
+							
+							<h:inputHidden value="#{projetoControle.ator.idAtor}" />
+							
+							<h:panelGrid columns="2">
+								
+								<p:outputLabel value="Matricula:" />
+								<p:inputText value="#{projetoControle.ator.matricula}" />
+							
+								<br />
+								<p:outputLabel />
+								
+								<p:outputLabel value="Nome:" />
+								<p:inputText value="#{projetoControle.ator.nome}" />
+								
+								<p:outputLabel value="Login:" />
+								<p:inputText value="#{projetoControle.ator.login}" />
+								
+								<p:outputLabel value="Senha:" />
+								<p:inputText value="#{projetoControle.ator.senha}" />
+							
+								<p:outputLabel value="Cargo:" />
+								<p:selectOneMenu value="#{projetoControle.ator.cargo}">
+									<f:selectItem itemLabel="" itemValue=""/>
+									<f:selectItem itemLabel="Analista de Sistemas" itemValue="Analista de Sistemas"/>
+									<f:selectItem itemLabel="Designer de Negócios" itemValue="Designer de Negócios"/>
+									<f:selectItem itemLabel="Revisor do Modelo de Negócios" itemValue="Revisor do Modelo de Negócios"/>
+									<f:selectItem itemLabel="Analista do Processo de Negócios" itemValue="Analista do Processo de Negócios"/>
+									<f:selectItem itemLabel="Revisor de Requisitos" itemValue="Revisor de Requisitos"/>
+									<f:selectItem itemLabel="Especificador de Requisitos" itemValue="Especificador de Requisitos"/>
+									<f:selectItem itemLabel="Analista de Teste" itemValue="Analista de Teste"/>
+									<f:selectItem itemLabel="Designer de Interface de Usuário" itemValue="Designer de Interface de Usuário"/>
+									<f:selectItem itemLabel="Designer de Cápsula" itemValue="Designer de Cápsula"/>
+									<f:selectItem itemLabel="Revisor de Código" itemValue="Revisor de Código"/>
+									<f:selectItem itemLabel="Designer de Banco de Dados" itemValue="Designer de Banco de Dados"/>
+									<f:selectItem itemLabel="Implementador" itemValue="Implementador"/>
+									<f:selectItem itemLabel="Integrador" itemValue="Integrador"/>
+									<f:selectItem itemLabel="Arquiteto de Software" itemValue="Arquiteto de Software"/>
+									<f:selectItem itemLabel="Revisor de Arquitetura" itemValue="Revisor de Arquitetura"/>
+									<f:selectItem itemLabel="Revisor de Design" itemValue="Revisor de Design"/>
+									<f:selectItem itemLabel="Designer" itemValue="Designer"/>
+									<f:selectItem itemLabel="Designer de Teste" itemValue="Designer de Teste"/>
+									<f:selectItem itemLabel="Testador" itemValue="Testador"/>
+									<f:selectItem itemLabel="Engenheiro de Processo" itemValue="Engenheiro de Processo"/>
+									<f:selectItem itemLabel="Gerente de Projeto" itemValue="Gerente de Projeto"/>
+									<f:selectItem itemLabel="Gerente de Controle de Mudança" itemValue="Gerente de Controle de Mudança"/>
+									<f:selectItem itemLabel="Gerente de Configuração" itemValue="Gerente de Configuração"/>
+									<f:selectItem itemLabel="Gerente de Implantação" itemValue="Gerente de Implantação"/>
+									<f:selectItem itemLabel="Revisor do Projeto" itemValue="Revisor do Projeto"/>
+									<f:selectItem itemLabel="Gerente de Testes" itemValue="Gerente de Testes"/>
+									<f:selectItem itemLabel="Envolvidos" itemValue="Envolvidos"/>
+									<f:selectItem itemLabel="Todos os Papéis" itemValue="Todos os Papéis"/>
+									<f:selectItem itemLabel="Desenvolvedor do Curso" itemValue="Desenvolvedor do Curso"/>
+									<f:selectItem itemLabel="Artista Gráfico" itemValue="Artista Gráfico"/>
+									<f:selectItem itemLabel="Especialista em Ferramentas" itemValue="Especialista em Ferramentas"/>
+									<f:selectItem itemLabel="Administrador de Sistema" itemValue="Administrador de Sistema"/>
+									<f:selectItem itemLabel="Redator Técnico" itemValue="Redator Técnico"/>
+								</p:selectOneMenu>
+							
+								<p:outputLabel value="Status:" />
+								<p:selectOneMenu value="#{projetoControle.ator.situacao}">
+									<f:selectItem itemLabel="" />
+									<f:selectItem itemLabel="Ativo" itemValue="A" />
+									<f:selectItem itemLabel="Inativo" itemValue="I" />
+								</p:selectOneMenu>
+							
+								<p:outputLabel value="Administrador:" />
+								<p:selectOneMenu value="#{projetoControle.ator.administrador}">
+									<f:selectItem itemLabel="" />
+									<f:selectItem itemLabel="Sim" itemValue="true" />
+									<f:selectItem itemLabel="Não" itemValue="false" />
+								</p:selectOneMenu>
+								
+								<p:commandButton value="Cadastrar" action="#{projetoControle.paginaSalvarAtor}" />
+								
+								<p:commandButton value="Limpar" />
+								
+								</h:panelGrid>
+								
+								<p:separator/>
+								
+							</h:form>
+    						
+						</p:dialog>
+
+					</p:commandButton>
+						
+					<p:commandButton value="Listar" action="#{projetoControle.paginaListarAtores()}" />
+					
+				</h:panelGrid>
+				
+				<p:separator />
+					
+				&nbsp;&nbsp;<p:commandButton value="Concluir" action="#{projetoControle.paginaSalvarProjeto}"/>
 				
 				</h:form>
 

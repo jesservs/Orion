@@ -18,7 +18,7 @@ public class HibernateUtil implements Serializable {
 
 			AnnotationConfiguration cfg = new AnnotationConfiguration();
 
-			cfg.configure();
+			cfg.configure("hibernate.cfg.xml");
 
 			return cfg.buildSessionFactory();
 
@@ -32,10 +32,6 @@ public class HibernateUtil implements Serializable {
 	}
 
 	public static SessionFactory getSessionfactory() {
-		return sessionFactory;
-	}
-
-	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 

@@ -40,14 +40,6 @@ public final class ProjetoDeTesteServico implements
 		return this.p.buscar(objeto, id);
 	}
 
-	public Logger getLogger() {
-		return logger;
-	}
-
-	public ProjetoDeTestePersistencia getP() {
-		return p;
-	}
-
 	@Override
 	public List<ProjetoDeTesteBean> listar() throws Exception {
 
@@ -84,6 +76,10 @@ public final class ProjetoDeTesteServico implements
 
 	public void setP(ProjetoDeTestePersistencia p) {
 		this.p = p;
+	}
+
+	public ProjetoDeTestePersistencia getP() {
+		return p;
 	}
 
 }
