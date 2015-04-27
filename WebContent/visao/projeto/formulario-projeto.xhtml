@@ -138,10 +138,8 @@
 			
 					<p:commandButton value="Novo" type="button" onclick="PF('dlg1').show();">
 
-						<p:dialog header="Cadastro Ator" widgetVar="dlg1" modal="true" height="400" resizable="false">
+						<p:dialog header="Formulario Ator" widgetVar="dlg1" modal="true" height="400" resizable="false" >
     						
-							<p:separator/>
-
     						<h:form>
 							
 							<h:messages />
@@ -151,22 +149,19 @@
 							<h:panelGrid columns="2">
 								
 								<p:outputLabel value="Matricula:" />
-								<p:inputText value="#{projetoControle.ator.matricula}" />
+								<p:inputText value="#{projetoControle.ator.matricula}" style="width: 377px;"/>
 							
-								<br />
-								<p:outputLabel />
-								
 								<p:outputLabel value="Nome:" />
-								<p:inputText value="#{projetoControle.ator.nome}" />
+								<p:inputText value="#{projetoControle.ator.nome}" style="width: 377px;"/>
 								
 								<p:outputLabel value="Login:" />
-								<p:inputText value="#{projetoControle.ator.login}" />
+								<p:inputText value="#{projetoControle.ator.login}" style="width: 377px;"/>
 								
 								<p:outputLabel value="Senha:" />
-								<p:inputText value="#{projetoControle.ator.senha}" />
+								<p:inputText value="#{projetoControle.ator.senha}" style="width: 377px;"/>
 							
 								<p:outputLabel value="Cargo:" />
-								<p:selectOneMenu value="#{projetoControle.ator.cargo}">
+								<p:selectOneMenu value="#{projetoControle.ator.cargo}" style="width: 300px;">
 									<f:selectItem itemLabel="" itemValue=""/>
 									<f:selectItem itemLabel="Analista de Sistemas" itemValue="Analista de Sistemas"/>
 									<f:selectItem itemLabel="Designer de Negócios" itemValue="Designer de Negócios"/>
@@ -204,26 +199,24 @@
 								</p:selectOneMenu>
 							
 								<p:outputLabel value="Status:" />
-								<p:selectOneMenu value="#{projetoControle.ator.situacao}">
+								<p:selectOneMenu value="#{projetoControle.ator.situacao}" style="width: 300px;">
 									<f:selectItem itemLabel="" />
 									<f:selectItem itemLabel="Ativo" itemValue="A" />
 									<f:selectItem itemLabel="Inativo" itemValue="I" />
 								</p:selectOneMenu>
 							
 								<p:outputLabel value="Administrador:" />
-								<p:selectOneMenu value="#{projetoControle.ator.administrador}">
+								<p:selectOneMenu value="#{projetoControle.ator.administrador}" style="width: 300px;">
 									<f:selectItem itemLabel="" />
 									<f:selectItem itemLabel="Sim" itemValue="true" />
 									<f:selectItem itemLabel="Não" itemValue="false" />
 								</p:selectOneMenu>
 								
+								</h:panelGrid>
+								
 								<p:commandButton value="Cadastrar" action="#{projetoControle.paginaSalvarAtor}" />
 								
 								<p:commandButton value="Limpar" />
-								
-								</h:panelGrid>
-								
-								<p:separator/>
 								
 							</h:form>
     						
@@ -231,7 +224,55 @@
 
 					</p:commandButton>
 						
-					<p:commandButton value="Listar" action="#{projetoControle.paginaListarAtores()}" />
+					<p:commandButton value="Listar" type="button" onclick="PF('dlg2').show();" >
+						
+						<p:dialog header="Lista Atores" widgetVar="dlg2" modal="true" height="400" >
+						
+							<h:form>
+							
+							<h:messages />
+							
+							<p:dataTable var="ator" value="#{projetoControle.listaAtores}">
+					
+								<p:column headerText="Mastricula">
+									<h:outputText value="#{ator.matricula}" />
+								</p:column>
+						
+								<p:column headerText="Login">
+									<h:outputText value="#{ator.login}" />
+								</p:column>
+						
+								<p:column headerText="Nome">
+									<h:outputText value="#{ator.nome}" />
+								</p:column>
+						
+								<p:column headerText="Cargo">
+									<h:outputText value="#{ator.cargo}" />
+								</p:column>
+						
+								<p:column headerText="Opcoes">
+								
+								<p:commandButton value="Atualizar" action="#{projetoControle.paginaAtualizarAtor}" icon="ui-icon-refresh">
+									
+									<f:setPropertyActionListener value="#{ator}" target="#{projetoControle.ator}"/>
+								
+								</p:commandButton>
+								
+								<p:commandButton value="Excluir" action="#{projetoControle.paginaExcluirAtor}" icon="ui-icon-trash">
+								
+									<f:setPropertyActionListener value="#{ator}" target="#{projetoControle.ator}"/>
+								
+								</p:commandButton>
+								
+								</p:column>
+						
+							</p:dataTable>
+						
+						</h:form>
+						
+						</p:dialog>
+					
+					</p:commandButton>
 					
 				</h:panelGrid>
 				
