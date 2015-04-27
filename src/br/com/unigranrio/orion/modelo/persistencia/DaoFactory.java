@@ -2,6 +2,7 @@ package br.com.unigranrio.orion.modelo.persistencia;
 
 import java.io.Serializable;
 
+import br.com.unigranrio.orion.modelo.sistema.DocumentoBean;
 import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
 import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 import br.com.unigranrio.orion.util.HibernateUtil;
@@ -18,6 +19,15 @@ public class DaoFactory implements Serializable {
 		p.novaSessao(HibernateUtil.getSessionfactory().openSession());
 
 		return p;
+	}
+	
+	public static PadraoInterface<DocumentoBean> documentoDAO() {
+
+		DocumentoPersistencia d = new DocumentoPersistencia();
+
+		d.novaSessao(HibernateUtil.getSessionfactory().openSession());
+
+		return d;
 	}
 	
 	public static PadraoInterface<AtorBean> atorDAO() {

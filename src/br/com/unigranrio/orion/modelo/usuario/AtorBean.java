@@ -12,48 +12,51 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_ator", schema="public")
-@SequenceGenerator(name = "sq_ator", sequenceName = "sq_ator",allocationSize=0,initialValue=1)
+@Table(name = "tb_ator", schema = "public")
+@SequenceGenerator(name = "sq_ator", sequenceName = "sq_ator", allocationSize = 0, initialValue = 1)
 public class AtorBean implements Serializable {
 
 	private static final long serialVersionUID = -7844282849736164711L;
 
 	@Id
-	@GeneratedValue(generator="sq_ator", strategy=GenerationType.SEQUENCE)
-	@Column(name="pk_ator")
+	@GeneratedValue(generator = "sq_ator", strategy = GenerationType.SEQUENCE)
+	@Column(name = "pk_ator")
 	private Long idAtor;
 
-	@Column(name="vs_descricao")
+	@Column(name = "vs_descricao")
 	private String descricao;
 
-	@Column(name="vn_codigo_ator")
+	@Column(name = "vn_codigo_ator")
 	private Long codigoAtor;
 
-	@Column(name="vs_nome")
+	@Column(name = "vn_codigo_projeto")
+	private Long codigoProjeto;
+
+	@Column(name = "vs_nome")
 	private String nome;
 
-	@Column(name="vs_login")
+	@Column(name = "vs_login")
 	private String login;
 
-	@Column(name="vs_senha")
+	@Column(name = "vs_senha")
 	private String senha;
 
-	@Column(name="vs_cargo")
+	@Column(name = "vs_cargo")
 	private String cargo;
 
-	@Column(name="vs_matricula")
+	@Column(name = "vs_matricula")
 	private String matricula;
 
-	@Column(name="vs_email")
+	@Column(name = "vs_email")
 	private String email;
 
-	@Column(name="vb_administrador")
+	@Column(name = "vb_administrador")
 	private Boolean administrador;
 
-	@Column(name="vs_situacao")
+	@Column(name = "vs_situacao")
 	private String situacao;
 
-	@Column(name="vd_data_de_criacao")
+	@Column(name = "vd_data_de_criacao")
 	private Date dataDeCriacao;
 
 	public AtorBean() {
@@ -61,13 +64,14 @@ public class AtorBean implements Serializable {
 	}
 
 	public AtorBean(Long idAtor, String descricao, Long codigoAtor,
-			String nome, String login, String senha, String cargo,
-			String matricula, String email, Boolean administrador,
-			String situacao, Date dataDeCriacao) {
+			Long codigoProjeto, String nome, String login, String senha,
+			String cargo, String matricula, String email,
+			Boolean administrador, String situacao, Date dataDeCriacao) {
 		super();
 		this.idAtor = idAtor;
 		this.descricao = descricao;
 		this.codigoAtor = codigoAtor;
+		this.codigoProjeto = codigoProjeto;
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
@@ -175,6 +179,14 @@ public class AtorBean implements Serializable {
 		this.dataDeCriacao = dataDeCriacao;
 	}
 
+	public Long getCodigoProjeto() {
+		return codigoProjeto;
+	}
+
+	public void setCodigoProjeto(Long codigoProjeto) {
+		this.codigoProjeto = codigoProjeto;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -184,6 +196,8 @@ public class AtorBean implements Serializable {
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
 		result = prime * result
 				+ ((codigoAtor == null) ? 0 : codigoAtor.hashCode());
+		result = prime * result
+				+ ((codigoProjeto == null) ? 0 : codigoProjeto.hashCode());
 		result = prime * result
 				+ ((dataDeCriacao == null) ? 0 : dataDeCriacao.hashCode());
 		result = prime * result
@@ -223,6 +237,11 @@ public class AtorBean implements Serializable {
 			if (other.codigoAtor != null)
 				return false;
 		} else if (!codigoAtor.equals(other.codigoAtor))
+			return false;
+		if (codigoProjeto == null) {
+			if (other.codigoProjeto != null)
+				return false;
+		} else if (!codigoProjeto.equals(other.codigoProjeto))
 			return false;
 		if (dataDeCriacao == null) {
 			if (other.dataDeCriacao != null)

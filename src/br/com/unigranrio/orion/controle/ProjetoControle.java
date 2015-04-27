@@ -49,7 +49,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	}
 
 	// Parte Pertencente ao ator.
-
 	public String paginaSalvarAtor() {
 
 		try {
@@ -59,6 +58,8 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 				this.logger.info("Controle: Cadastro Ator.");
 
 				this.ator.setCodigoAtor(this.ator.getIdAtor());
+				
+				this.ator.setCodigoProjeto(this.projeto.getCodigoProjetoDeTeste());
 
 				this.a.salvar(this.ator);
 
@@ -103,11 +104,11 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 			for (ProjetoDeTesteBean p : this.listar()) {
 
 				i += 1;
-				if (this.projeto.getIdProjetoDeTeste() == p
-						.getIdProjetoDeTeste()) {
-					
+				
+				if (this.projeto.getIdProjetoDeTeste() == p.getIdProjetoDeTeste()) {
+
 					ats.add(p.getEnvolvidos().get(i));
-					
+
 				}
 
 			}
@@ -203,7 +204,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	}
 
 	// Parte Pertencente ao projeto.
-
 	public DataModel<ProjetoDeTesteBean> getListaProjetos() {
 
 		try {
