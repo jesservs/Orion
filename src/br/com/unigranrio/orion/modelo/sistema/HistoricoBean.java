@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tb_historico", schema="public")
 @SequenceGenerator(name = "sq_historico", sequenceName = "sq_historico",allocationSize=0,initialValue=1)
-public class HistoricoBean implements Serializable {
+public final class HistoricoBean implements Serializable {
 
 	private static final long serialVersionUID = -7334248233148528902L;
 

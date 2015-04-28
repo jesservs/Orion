@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_plano_de_teste", schema = "public")
 @SequenceGenerator(name = "sq_plano_de_teste", sequenceName = "sq_plano_de_teste", allocationSize = 0, initialValue = 1)
-public class PlanoDeTesteBean extends DocumentoBean implements Serializable {
+public final class PlanoDeTesteBean extends DocumentoBean implements Serializable {
 
 	private static final long serialVersionUID = -413410900450621402L;
 

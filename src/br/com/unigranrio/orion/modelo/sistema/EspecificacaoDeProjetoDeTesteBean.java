@@ -11,44 +11,30 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_especificacao_de_projeto_de_teste", schema = "public")
 @SequenceGenerator(name = "sq_especificacao_de_projeto_de_teste", sequenceName = "sq_especificacao_de_projeto_de_teste", allocationSize = 0, initialValue = 1)
-public class EspecificacaoDeProjetoDeTesteBean extends DocumentoBean implements
-		Serializable {
+public final class EspecificacaoDeProjetoDeTesteBean extends DocumentoBean
+		implements Serializable {
 
 	private static final long serialVersionUID = 8925117017916663571L;
 
-	@Column(name="vs_identificador_da_suite_de_teste")
+	@Column(name = "vs_identificador_da_suite_de_teste")
 	private String identificadorDaSuiteDeTeste;
 
-
-	@Column(name="vs_funcionalidades_a_serem_testadas")
+	@Column(name = "vs_funcionalidades_a_serem_testadas")
 	private String funcionalidadesaseremtestadas;
 
-
-	@Column(name="vs_abordagem")
+	@Column(name = "vs_abordagem")
 	private String abordagem;
 
-
-	@Column(name="vs_procedimento")
+	@Column(name = "vs_procedimento")
 	private String procedimento;
 
-
-	@Column(name="vs_caso_de_teste")
+	@Column(name = "vs_caso_de_teste")
 	private String casodeteste;
 
-
-	@Column(name="vs_criterios_de_sucesso_e_falha")
+	@Column(name = "vs_criterios_de_sucesso_e_falha")
 	private String criteriosdesucessoefalha;
 
 	public EspecificacaoDeProjetoDeTesteBean() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public EspecificacaoDeProjetoDeTesteBean(Long idDocumento,
-			Long codigoDocumento, Long codigoProjeto, Long codigoAtor,
-			String descricao, Date dataCriacao, Date dataAtualizacao,
-			String nome, String tipo) {
-		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
-				descricao, dataCriacao, dataAtualizacao, nome, tipo);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -64,6 +50,18 @@ public class EspecificacaoDeProjetoDeTesteBean extends DocumentoBean implements
 		this.procedimento = procedimento;
 		this.casodeteste = casodeteste;
 		this.criteriosdesucessoefalha = criteriosdesucessoefalha;
+	}
+
+	public EspecificacaoDeProjetoDeTesteBean(Long idDocumento,
+			Long codigoDocumento, Long codigoProjeto, Long codigoAtor,
+			String descricao, Date dataCriacao, Date dataAtualizacao,
+			String nome, String tipo, String propostoPor, String aprovadoPor,
+			String situacaoDaDistribuicao, String listaDeDistribuicao) {
+		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
+				descricao, dataCriacao, dataAtualizacao, nome, tipo,
+				propostoPor, aprovadoPor, situacaoDaDistribuicao,
+				listaDeDistribuicao);
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setIdentificadorDaSuiteDeTeste(

@@ -11,30 +11,30 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_estudo_de_viabilidade", schema = "public")
 @SequenceGenerator(name = "sq_estudo_de_viabilidade", sequenceName = "sq_estudo_de_viabilidade", allocationSize = 0, initialValue = 1)
-public class EstudoDeViabilidadeBean extends DocumentoBean implements
+public final class EstudoDeViabilidadeBean extends DocumentoBean implements
 		Serializable {
 
 	private static final long serialVersionUID = -7739254085248268413L;
 
-	@Column(name="vs_objetivo_do_documento")
+	@Column(name = "vs_objetivo_do_documento")
 	private String objetivoDoDocumento;
 
-	@Column(name="vs_metas")
+	@Column(name = "vs_metas")
 	private String metas;
 
-	@Column(name="vs_requisito_de_arquitetura")
+	@Column(name = "vs_requisito_de_arquitetura")
 	private String requisitoDeArquitetura;
 
-	@Column(name="vs_requisitos_de_qualidade")
+	@Column(name = "vs_requisitos_de_qualidade")
 	private String requisitosdeQualidade;
 
-	@Column(name="vs_confianca")
+	@Column(name = "vs_confianca")
 	private String confianca;
 
-	@Column(name="vs_usabilidade")
+	@Column(name = "vs_usabilidade")
 	private String usabilidade;
 
-	@Column(name="vs_seguranca")
+	@Column(name = "vs_seguranca")
 	private String seguranca;
 
 	public EstudoDeViabilidadeBean() {
@@ -56,9 +56,13 @@ public class EstudoDeViabilidadeBean extends DocumentoBean implements
 
 	public EstudoDeViabilidadeBean(Long idDocumento, Long codigoDocumento,
 			Long codigoProjeto, Long codigoAtor, String descricao,
-			Date dataCriacao, Date dataAtualizacao, String nome, String tipo) {
+			Date dataCriacao, Date dataAtualizacao, String nome, String tipo,
+			String propostoPor, String aprovadoPor,
+			String situacaoDaDistribuicao, String listaDeDistribuicao) {
 		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
-				descricao, dataCriacao, dataAtualizacao, nome, tipo);
+				descricao, dataCriacao, dataAtualizacao, nome, tipo,
+				propostoPor, aprovadoPor, situacaoDaDistribuicao,
+				listaDeDistribuicao);
 		// TODO Auto-generated constructor stub
 	}
 

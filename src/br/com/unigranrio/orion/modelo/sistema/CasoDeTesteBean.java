@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_caso_de_teste", schema = "public")
 @SequenceGenerator(name = "sq_caso_de_teste", sequenceName = "sq_caso_de_teste", allocationSize = 0, initialValue = 1)
-public class CasoDeTesteBean extends DocumentoBean implements Serializable {
+public final class CasoDeTesteBean extends DocumentoBean implements
+		Serializable {
 
 	private static final long serialVersionUID = -4148218159585020651L;
 
@@ -46,6 +47,18 @@ public class CasoDeTesteBean extends DocumentoBean implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public CasoDeTesteBean(Long idDocumento, Long codigoDocumento,
+			Long codigoProjeto, Long codigoAtor, String descricao,
+			Date dataCriacao, Date dataAtualizacao, String nome, String tipo,
+			String propostoPor, String aprovadoPor,
+			String situacaoDaDistribuicao, String listaDeDistribuicao) {
+		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
+				descricao, dataCriacao, dataAtualizacao, nome, tipo,
+				propostoPor, aprovadoPor, situacaoDaDistribuicao,
+				listaDeDistribuicao);
+		// TODO Auto-generated constructor stub
+	}
+
 	public CasoDeTesteBean(String preCondicoes, String posCondicoes,
 			String detalhamento, String massaDeEntradaSaida,
 			String criteriosEspeciais, String ambiente, String implementacao,
@@ -60,14 +73,6 @@ public class CasoDeTesteBean extends DocumentoBean implements Serializable {
 		this.implementacao = implementacao;
 		this.iteracao = iteracao;
 		this.interDependencias = interDependencias;
-	}
-
-	public CasoDeTesteBean(Long idDocumento, Long codigoDocumento,
-			Long codigoProjeto, Long codigoAtor, String descricao,
-			Date dataCriacao, Date dataAtualizacao, String nome, String tipo) {
-		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
-				descricao, dataCriacao, dataAtualizacao, nome, tipo);
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getPreCondicoes() {

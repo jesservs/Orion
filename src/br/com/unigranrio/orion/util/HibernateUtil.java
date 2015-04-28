@@ -18,7 +18,7 @@ public class HibernateUtil implements Serializable {
 
 			AnnotationConfiguration cfg = new AnnotationConfiguration();
 
-			cfg.configure("hibernate.cfg.xml");
+			cfg.configure();
 
 			return cfg.buildSessionFactory();
 

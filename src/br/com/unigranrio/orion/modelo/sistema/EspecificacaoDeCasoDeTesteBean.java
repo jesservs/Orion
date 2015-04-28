@@ -5,33 +5,39 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-public class EspecificacaoDeCasoDeTesteBean extends DocumentoBean implements
-		Serializable {
+@Entity
+@Table(name = "tb_especificacao_de_caso_de_teste", schema = "public")
+@SequenceGenerator(name = "sq_especificacao_de_caso_de_teste", sequenceName = "sq_especificacao_de_caso_de_teste", allocationSize = 0, initialValue = 1)
+public final class EspecificacaoDeCasoDeTesteBean extends DocumentoBean
+		implements Serializable {
 
 	private static final long serialVersionUID = -8674001692748176398L;
 
-	@Column(name="vs_identificador_do_caso_de_teste")
+	@Column(name = "vs_identificador_do_caso_de_teste")
 	private String identificadorDoCasoDeTeste;
 
-	@Column(name="vs_itens_de_Teste")
+	@Column(name = "vs_itens_de_Teste")
 	private String itensDeTeste;
 
-	@Column(name="vs_descricao_especificacao_das_entradas")
+	@Column(name = "vs_descricao_especificacao_das_entradas")
 	private String descricaoEspecificacaoDasEntradas;
 
 	private Map<Long, String> especificacaoDasEntradas;
 
-	@Column(name="vs_caso_de_teste")
+	@Column(name = "vs_caso_de_teste")
 	private String casoDeTeste;
 
-	@Column(name="vs_especificacao_de_saida")
+	@Column(name = "vs_especificacao_de_saida")
 	private String especificacaoDeSaida;
 
-	@Column(name="vs_necessidades_de_ambiente")
+	@Column(name = "vs_necessidades_de_ambiente")
 	private String necessidadesDeAmbiente;
 
-	@Column(name="vs_procedimentos_especiais_necessarios")
+	@Column(name = "vs_procedimentos_especiais_necessarios")
 	private String procedimentosEspeciaisNecessarios;
 
 	public EspecificacaoDeCasoDeTesteBean() {
@@ -41,9 +47,12 @@ public class EspecificacaoDeCasoDeTesteBean extends DocumentoBean implements
 	public EspecificacaoDeCasoDeTesteBean(Long idDocumento,
 			Long codigoDocumento, Long codigoProjeto, Long codigoAtor,
 			String descricao, Date dataCriacao, Date dataAtualizacao,
-			String nome, String tipo) {
+			String nome, String tipo, String propostoPor, String aprovadoPor,
+			String situacaoDaDistribuicao, String listaDeDistribuicao) {
 		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
-				descricao, dataCriacao, dataAtualizacao, nome, tipo);
+				descricao, dataCriacao, dataAtualizacao, nome, tipo,
+				propostoPor, aprovadoPor, situacaoDaDistribuicao,
+				listaDeDistribuicao);
 		// TODO Auto-generated constructor stub
 	}
 

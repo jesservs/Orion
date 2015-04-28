@@ -21,7 +21,7 @@ import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 @Entity
 @Table(name = "tb_projeto_de_teste", schema = "public")
 @SequenceGenerator(name = "sq_projeto_de_teste", sequenceName = "sq_projeto_de_teste", allocationSize = 0, initialValue = 1)
-public class ProjetoDeTesteBean implements Serializable {
+public final class ProjetoDeTesteBean implements Serializable {
 
 	private static final long serialVersionUID = -2247482439597915794L;
 

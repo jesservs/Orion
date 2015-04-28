@@ -16,42 +16,54 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="tb_documento", schema="public")
+@Table(name = "tb_documento", schema = "public")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@SequenceGenerator(name = "sq_documento", sequenceName = "sq_documento",allocationSize=0,initialValue=1)
+@SequenceGenerator(name = "sq_documento", sequenceName = "sq_documento", allocationSize = 0, initialValue = 1)
 public class DocumentoBean implements Serializable {
 
 	private static final long serialVersionUID = -5208727874812584354L;
 
 	@Id
-	@GeneratedValue(generator="sq_documento", strategy=GenerationType.SEQUENCE)
-	@Column(name="pk_documento")
+	@GeneratedValue(generator = "sq_documento", strategy = GenerationType.SEQUENCE)
+	@Column(name = "pk_documento")
 	private Long idDocumento;
 
-	@Column(name="vn_codigo_documento")
+	@Column(name = "vn_codigo_documento")
 	private Long codigoDocumento;
 
-	@Column(name="vn_codigo_projeto")
+	@Column(name = "vn_codigo_projeto")
 	private Long codigoProjeto;
 
-	@Column(name="vn_codigo_ator")
+	@Column(name = "vn_codigo_ator")
 	private Long codigoAtor;
 
-	@Column(name="vs_descricao")
+	@Column(name = "vs_descricao")
 	private String descricao;
 
-	@Column(name="vd_data_criacao")
+	@Column(name = "vd_data_criacao")
 	private Date dataCriacao;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="vd_data_atualizacao")
+	@Column(name = "vd_data_atualizacao")
 	private Date dataAtualizacao;
 
-	@Column(name="vs_nome")
+	@Column(name = "vs_nome")
 	private String nome;
 
-	@Column(name="vs_tipo")
+	@Column(name = "vs_tipo")
 	private String tipo;
+
+	@Column(name = "vs_proposto_por")
+	private String propostoPor;
+
+	@Column(name = "vs_aprovado_por")
+	private String aprovadoPor;
+
+	@Column(name = "vs_situacao_da_distribuicao")
+	private String situacaoDaDistribuicao;
+
+	@Column(name = "vs_lista_de_distribuicao")
+	private String listaDeDistribuicao;
 
 	public DocumentoBean() {
 		// TODO Auto-generated constructor stub
@@ -59,7 +71,9 @@ public class DocumentoBean implements Serializable {
 
 	public DocumentoBean(Long idDocumento, Long codigoDocumento,
 			Long codigoProjeto, Long codigoAtor, String descricao,
-			Date dataCriacao, Date dataAtualizacao, String nome, String tipo) {
+			Date dataCriacao, Date dataAtualizacao, String nome, String tipo,
+			String propostoPor, String aprovadoPor,
+			String situacaoDaDistribuicao, String listaDeDistribuicao) {
 		super();
 		this.idDocumento = idDocumento;
 		this.codigoDocumento = codigoDocumento;
@@ -70,6 +84,10 @@ public class DocumentoBean implements Serializable {
 		this.dataAtualizacao = dataAtualizacao;
 		this.nome = nome;
 		this.tipo = tipo;
+		this.propostoPor = propostoPor;
+		this.aprovadoPor = aprovadoPor;
+		this.situacaoDaDistribuicao = situacaoDaDistribuicao;
+		this.listaDeDistribuicao = listaDeDistribuicao;
 	}
 
 	public Long getIdDocumento() {
@@ -144,10 +162,44 @@ public class DocumentoBean implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public String getPropostoPor() {
+		return propostoPor;
+	}
+
+	public void setPropostoPor(String propostoPor) {
+		this.propostoPor = propostoPor;
+	}
+
+	public String getAprovadoPor() {
+		return aprovadoPor;
+	}
+
+	public void setAprovadoPor(String aprovadoPor) {
+		this.aprovadoPor = aprovadoPor;
+	}
+
+	public String getSituacaoDaDistribuicao() {
+		return situacaoDaDistribuicao;
+	}
+
+	public void setSituacaoDaDistribuicao(String situacaoDaDistribuicao) {
+		this.situacaoDaDistribuicao = situacaoDaDistribuicao;
+	}
+
+	public String getListaDeDistribuicao() {
+		return listaDeDistribuicao;
+	}
+
+	public void setListaDeDistribuicao(String listaDeDistribuicao) {
+		this.listaDeDistribuicao = listaDeDistribuicao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result
+				+ ((aprovadoPor == null) ? 0 : aprovadoPor.hashCode());
 		result = prime * result
 				+ ((codigoAtor == null) ? 0 : codigoAtor.hashCode());
 		result = prime * result
@@ -162,7 +214,17 @@ public class DocumentoBean implements Serializable {
 				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result
 				+ ((idDocumento == null) ? 0 : idDocumento.hashCode());
+		result = prime
+				* result
+				+ ((listaDeDistribuicao == null) ? 0 : listaDeDistribuicao
+						.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result
+				+ ((propostoPor == null) ? 0 : propostoPor.hashCode());
+		result = prime
+				* result
+				+ ((situacaoDaDistribuicao == null) ? 0
+						: situacaoDaDistribuicao.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		return result;
 	}
@@ -176,6 +238,11 @@ public class DocumentoBean implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		DocumentoBean other = (DocumentoBean) obj;
+		if (aprovadoPor == null) {
+			if (other.aprovadoPor != null)
+				return false;
+		} else if (!aprovadoPor.equals(other.aprovadoPor))
+			return false;
 		if (codigoAtor == null) {
 			if (other.codigoAtor != null)
 				return false;
@@ -211,10 +278,25 @@ public class DocumentoBean implements Serializable {
 				return false;
 		} else if (!idDocumento.equals(other.idDocumento))
 			return false;
+		if (listaDeDistribuicao == null) {
+			if (other.listaDeDistribuicao != null)
+				return false;
+		} else if (!listaDeDistribuicao.equals(other.listaDeDistribuicao))
+			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
+			return false;
+		if (propostoPor == null) {
+			if (other.propostoPor != null)
+				return false;
+		} else if (!propostoPor.equals(other.propostoPor))
+			return false;
+		if (situacaoDaDistribuicao == null) {
+			if (other.situacaoDaDistribuicao != null)
+				return false;
+		} else if (!situacaoDaDistribuicao.equals(other.situacaoDaDistribuicao))
 			return false;
 		if (tipo == null) {
 			if (other.tipo != null)

@@ -11,48 +11,60 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_classificacao_de_impacto", schema = "public")
 @SequenceGenerator(name = "sq_classificacao_de_impacto", sequenceName = "sq_classificacao_de_impacto", allocationSize = 0, initialValue = 1)
-public class ClassificacaoDeImpacto extends DocumentoBean implements
+public final class ClassificacaoDeImpacto extends DocumentoBean implements
 		Serializable {
 
 	private static final long serialVersionUID = 8121822138403126696L;
 
-	@Column(name="vs_instabilidade")
+	@Column(name = "vs_instabilidade")
 	private String instabilidade;
 
-	@Column(name="vs_integridade_seguranca")
+	@Column(name = "vs_integridade_seguranca")
 	private String integridadeSeguranca;
 
-	@Column(name="vs_desempenho")
+	@Column(name = "vs_desempenho")
 	private String desempenho;
 
-	@Column(name="vs_manutencao")
+	@Column(name = "vs_manutencao")
 	private String manutencao;
 
-	@Column(name="vs_utilidade")
+	@Column(name = "vs_utilidade")
 	private String utilidade;
 
-	@Column(name="vs_migracao")
+	@Column(name = "vs_migracao")
 	private String migracao;
 
-	@Column(name="vs_documentacao")
+	@Column(name = "vs_documentacao")
 	private String documentacao;
 
-	@Column(name="vs_usabilidade")
+	@Column(name = "vs_usabilidade")
 	private String usabilidade;
 
-	@Column(name="vs_padroes")
+	@Column(name = "vs_padroes")
 	private String padroes;
 
-	@Column(name="vs_confiabilidade")
+	@Column(name = "vs_confiabilidade")
 	private String confiabilidade;
 
-	@Column(name="vs_acessibilidade")
+	@Column(name = "vs_acessibilidade")
 	private String acessibilidade;
 
-	@Column(name="vs_capacidade")
+	@Column(name = "vs_capacidade")
 	private String capacidade;
 
 	public ClassificacaoDeImpacto() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ClassificacaoDeImpacto(Long idDocumento, Long codigoDocumento,
+			Long codigoProjeto, Long codigoAtor, String descricao,
+			Date dataCriacao, Date dataAtualizacao, String nome, String tipo,
+			String propostoPor, String aprovadoPor,
+			String situacaoDaDistribuicao, String listaDeDistribuicao) {
+		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
+				descricao, dataCriacao, dataAtualizacao, nome, tipo,
+				propostoPor, aprovadoPor, situacaoDaDistribuicao,
+				listaDeDistribuicao);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -74,14 +86,6 @@ public class ClassificacaoDeImpacto extends DocumentoBean implements
 		this.confiabilidade = confiabilidade;
 		this.acessibilidade = acessibilidade;
 		this.capacidade = capacidade;
-	}
-
-	public ClassificacaoDeImpacto(Long idDocumento, Long codigoDocumento,
-			Long codigoProjeto, Long codigoAtor, String descricao,
-			Date dataCriacao, Date dataAtualizacao, String nome, String tipo) {
-		super(idDocumento, codigoDocumento, codigoProjeto, codigoAtor,
-				descricao, dataCriacao, dataAtualizacao, nome, tipo);
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getInstabilidade() {
