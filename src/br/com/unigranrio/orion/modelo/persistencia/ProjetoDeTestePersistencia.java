@@ -34,7 +34,7 @@ public class ProjetoDeTestePersistencia implements
 
 	public void novaSessao(Session sessao) {
 
-		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
+		this.logger.info("Persistencia: Nova Sessao Projeto de Teste.");
 
 		this.sessao = sessao;
 
@@ -47,7 +47,7 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.logger.info("Persistencia: Salvar. " + objeto.toString());
+			this.logger.info("Persistencia: Salvar Projeto de Teste.");
 
 			this.transacao.begin();
 
@@ -61,8 +61,7 @@ public class ProjetoDeTestePersistencia implements
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar. " + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Salvar Projeto de Teste." + e.getMessage());
 
 		}
 
@@ -73,7 +72,7 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.logger.info("Persistencia: Atualizar. " + objeto.toString());
+			this.logger.info("Persistencia: Atualizar Projeto de Teste.");
 
 			this.transacao.begin();
 
@@ -87,8 +86,7 @@ public class ProjetoDeTestePersistencia implements
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar. " + objeto.toString()
-					+ " " + e.getMessage());
+			this.logger.info("Persistencia: Atualizar Projeto de Teste."+ e.getMessage());
 
 		}
 
@@ -99,7 +97,7 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString());
+			this.logger.info("Persistencia: Remover Projeto de Teste.");
 
 			this.transacao.begin();
 
@@ -113,8 +111,7 @@ public class ProjetoDeTestePersistencia implements
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString()
-					+ " " + e.getMessage());
+			this.logger.info("Persistencia: Remover Projeto de Teste."+ e.getMessage());
 
 		}
 
@@ -126,7 +123,7 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.logger.info("Persistencia: Buscar." + objeto.toString());
+			this.logger.info("Persistencia: Buscar Projeto de Teste.");
 
 			this.projeto = (ProjetoDeTesteBean) this.sessao.get(
 					ProjetoDeTesteBean.class, id);
@@ -137,8 +134,7 @@ public class ProjetoDeTestePersistencia implements
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Buscar. " + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Buscar Projeto de Teste." + e.getMessage());
 
 			return null;
 
@@ -151,7 +147,7 @@ public class ProjetoDeTestePersistencia implements
 
 		try {
 
-			this.logger.info("Persistencia: Listar. ");
+			this.logger.info("Persistencia: Listar Projeto de Teste.");
 
 			this.projetos = this.sessao
 					.createCriteria(ProjetoDeTesteBean.class).list();
@@ -162,7 +158,7 @@ public class ProjetoDeTestePersistencia implements
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar ." + e.getMessage());
+			this.logger.info("Persistencia: Listar Projeto de Teste." + e.getMessage());
 
 			return null;
 

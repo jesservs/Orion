@@ -23,7 +23,7 @@ public final class ProjetoDeTesteServico implements
 	@Override
 	public void atualizar(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Projeto de Teste.");
 
 		this.p.atualizar(objeto);
 
@@ -33,7 +33,7 @@ public final class ProjetoDeTesteServico implements
 	public ProjetoDeTesteBean buscar(ProjetoDeTesteBean objeto, Long id)
 			throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Projeto de Teste.");
 
 		return this.p.buscar(objeto, id);
 	}
@@ -41,7 +41,7 @@ public final class ProjetoDeTesteServico implements
 	@Override
 	public List<ProjetoDeTesteBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Projeto de Teste.");
 
 		return this.p.listar();
 	}
@@ -49,7 +49,7 @@ public final class ProjetoDeTesteServico implements
 	@Override
 	public void remover(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Projeto de Teste.");
 
 		this.p.remover(objeto);
 
@@ -58,7 +58,7 @@ public final class ProjetoDeTesteServico implements
 	@Override
 	public void salvar(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Projeto de Teste.");
 
 		this.p.salvar(objeto);
 

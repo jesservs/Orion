@@ -2,13 +2,27 @@ package br.com.unigranrio.orion.modelo.persistencia;
 
 import java.io.Serializable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import br.com.unigranrio.orion.modelo.sistema.AnexoBean;
+import br.com.unigranrio.orion.modelo.sistema.ArtefatoBean;
+import br.com.unigranrio.orion.modelo.sistema.DiagramaBean;
+import br.com.unigranrio.orion.modelo.sistema.DocumentoBean;
+import br.com.unigranrio.orion.modelo.sistema.ModeloBean;
+import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
+import br.com.unigranrio.orion.modelo.sistema.TesteBean;
+import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 import br.com.unigranrio.orion.util.HibernateUtil;
+import br.com.unigranrio.orion.util.PadraoInterface;
 
 public class DaoFactory implements Serializable {
 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	private static final long serialVersionUID = -1945446498579680241L;
 
-	public static ProjetoDeTestePersistencia projetoDeTesteDAO() {
+	public static PadraoInterface<ProjetoDeTesteBean> projetoDeTesteDAO() {
 
 		ProjetoDeTestePersistencia p = new ProjetoDeTestePersistencia();
 
@@ -16,8 +30,8 @@ public class DaoFactory implements Serializable {
 
 		return p;
 	}
-	
-	public static DocumentoPersistencia documentoDAO() {
+
+	public static PadraoInterface<DocumentoBean> documentoDAO() {
 
 		DocumentoPersistencia d = new DocumentoPersistencia();
 
@@ -25,8 +39,8 @@ public class DaoFactory implements Serializable {
 
 		return d;
 	}
-	
-	public static AtorPersistencia atorDAO() {
+
+	public static PadraoInterface<AtorBean> atorDAO() {
 
 		AtorPersistencia a = new AtorPersistencia();
 
@@ -34,8 +48,8 @@ public class DaoFactory implements Serializable {
 
 		return a;
 	}
-	
-	public static AnexoPersistencia anexoeDAO() {
+
+	public static PadraoInterface<AnexoBean> anexoeDAO() {
 
 		AnexoPersistencia a = new AnexoPersistencia();
 
@@ -43,8 +57,8 @@ public class DaoFactory implements Serializable {
 
 		return a;
 	}
-	
-	public static ArtefatoPersistencia artefatoDAO() {
+
+	public static PadraoInterface<ArtefatoBean> artefatoDAO() {
 
 		ArtefatoPersistencia a = new ArtefatoPersistencia();
 
@@ -52,8 +66,8 @@ public class DaoFactory implements Serializable {
 
 		return a;
 	}
-	
-	public static DiagramaPersistencia diagramaDAO() {
+
+	public static PadraoInterface<DiagramaBean> diagramaDAO() {
 
 		DiagramaPersistencia d = new DiagramaPersistencia();
 
@@ -61,8 +75,8 @@ public class DaoFactory implements Serializable {
 
 		return d;
 	}
-	
-	public static ModeloPersistencia modeloDAO() {
+
+	public static PadraoInterface<ModeloBean> modeloDAO() {
 
 		ModeloPersistencia m = new ModeloPersistencia();
 
@@ -70,8 +84,8 @@ public class DaoFactory implements Serializable {
 
 		return m;
 	}
-	
-	public static TestePersistencia testeDAO() {
+
+	public static PadraoInterface<TesteBean> testeDAO() {
 
 		TestePersistencia t = new TestePersistencia();
 
@@ -79,6 +93,5 @@ public class DaoFactory implements Serializable {
 
 		return t;
 	}
-	
 
 }

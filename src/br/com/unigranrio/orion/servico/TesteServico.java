@@ -22,7 +22,7 @@ public class TesteServico implements PadraoInterface<TesteBean> {
 	@Override
 	public void atualizar(TesteBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Teste.");
 
 		this.t.atualizar(objeto);
 
@@ -31,7 +31,7 @@ public class TesteServico implements PadraoInterface<TesteBean> {
 	@Override
 	public TesteBean buscar(TesteBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Teste.");
 
 		return this.t.buscar(objeto, id);
 	}
@@ -39,7 +39,7 @@ public class TesteServico implements PadraoInterface<TesteBean> {
 	@Override
 	public List<TesteBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Teste.");
 
 		return this.t.listar();
 	}
@@ -47,7 +47,7 @@ public class TesteServico implements PadraoInterface<TesteBean> {
 	@Override
 	public void remover(TesteBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Teste.");
 
 		this.t.remover(objeto);
 
@@ -56,7 +56,7 @@ public class TesteServico implements PadraoInterface<TesteBean> {
 	@Override
 	public void salvar(TesteBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Teste.");
 
 		this.t.salvar(objeto);
 

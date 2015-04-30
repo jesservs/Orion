@@ -35,7 +35,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 	public void novaSessao(Session sessao) {
 
-		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
+		this.logger.info("Persistencia: Nova Sessao Artefato.");
 
 		this.sessao = sessao;
 
@@ -48,7 +48,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString());
+			this.logger.info("Persistencia: Salvar Artefato.");
 
 			this.transacao.begin();
 
@@ -62,8 +62,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Salvar Artefato." + e.getMessage());
 
 		}
 
@@ -74,7 +73,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString());
+			this.logger.info("Persistencia: Atualizar Artefato.");
 
 			this.transacao.begin();
 
@@ -88,8 +87,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString()
-					+ " " + e.getMessage());
+			this.logger.info("Persistencia: Atualizar Artefato." + e.getMessage());
 
 		}
 
@@ -100,7 +98,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString());
+			this.logger.info("Persistencia: Remover Artefato.");
 
 			this.transacao.begin();
 
@@ -114,8 +112,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString()
-					+ e.getMessage());
+			this.logger.info("Persistencia: Remover Artefato." + e.getMessage());
 
 		}
 
@@ -126,7 +123,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Buscar. " + objeto.toString());
+			this.logger.info("Persistencia: Buscar Artefato.");
 
 			this.artefato = (ArtefatoBean) this.sessao.get(ArtefatoBean.class,
 					id);
@@ -137,7 +134,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia Buscar." + e.getMessage());
+			this.logger.info("Persistencia Buscar Artefato." + e.getMessage());
 
 			return null;
 
@@ -150,7 +147,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Listar.");
+			this.logger.info("Persistencia: Listar Artefato.");
 
 			this.artefatos = (List<ArtefatoBean>) this.sessao.createCriteria(
 					ArtefatoBean.class).list();
@@ -161,7 +158,7 @@ public class ArtefatoPersistencia implements PadraoInterface<ArtefatoBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar." + e.getMessage());
+			this.logger.info("Persistencia: Listar Artefato." + e.getMessage());
 
 			return null;
 

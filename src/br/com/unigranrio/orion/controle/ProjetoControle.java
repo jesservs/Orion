@@ -12,11 +12,8 @@ import javax.faces.model.ListDataModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.modelo.sistema.DocumentoBean;
 import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
 import br.com.unigranrio.orion.modelo.usuario.AtorBean;
-import br.com.unigranrio.orion.servico.AtorServico;
-import br.com.unigranrio.orion.servico.DocumentoServico;
 import br.com.unigranrio.orion.servico.ProjetoDeTesteServico;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
@@ -34,17 +31,9 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	private Long quantidadeProjeto;
 
-	private String nome;
-
 	private ProjetoDeTesteServico p = new ProjetoDeTesteServico();
 
-	private AtorServico a = new AtorServico();
-
-	private AtorBean ator = new AtorBean();
-
 	private ProjetoDeTesteBean projeto = new ProjetoDeTesteBean();
-
-	private DataModel<AtorBean> atores = new ListDataModel<AtorBean>();
 
 	private DataModel<ProjetoDeTesteBean> projetos = new ListDataModel<ProjetoDeTesteBean>();
 
@@ -52,144 +41,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	}
 
-	// Parte Pertencente ao ator.
-	public String paginaSalvarAtor() {
-
-		try {
-
-			if (this.ator.getIdAtor() == 0 || this.ator.getIdAtor() == null) {
-
-				this.logger.info("Controle: Cadastro Ator.");
-
-				this.ator.setCodigoAtor(this.ator.getIdAtor());
-
-				this.ator.setCodigoProjeto(this.projeto
-						.getCodigoProjetoDeTeste());
-
-				this.a.salvar(this.ator);
-
-				this.ator = new AtorBean();
-
-				return "/visao/projeto/lista-projeto";
-
-			} else {
-
-				this.logger.info("Controle: Atualização Ator.");
-
-				this.a.atualizar(this.ator);
-
-				this.ator = new AtorBean();
-
-				return "/visao/projeto/lista-ator";
-
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Atualização ou Cadastro Ator.");
-
-			return "/visao/projeto/lista-ator";
-
-		}
-
-	}
-
-	public DataModel<AtorBean> getListaAtores() {
-
-		try {
-
-			this.logger.info("Controle: Lista Ator.");
-
-			List<AtorBean> ats = null;
-
-			Long i = null;
-
-			for (ProjetoDeTesteBean p : this.listar()) {
-
-				i += 1;
-
-				if (this.projeto.getIdProjetoDeTeste() == p
-						.getIdProjetoDeTeste()) {
-
-				}
-
-			}
-
-			this.projeto.setQuantidadeAtor(i);
-
-			this.atores = new ListDataModel<AtorBean>(ats);
-
-			return this.atores;
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Lista Ator.");
-
-			return null;
-		}
-
-	}
-
-	public String paginaAtualizarAtor() {
-
-		this.logger.info("Controle: Atualização Ator.");
-
-		this.ator = this.atores.getRowData();
-
-		return "/visao/projeto/formulario-ator";
-
-	}
-
-	public String paginaBuscarAtor() {
-
-		try {
-
-			this.logger.info("Controle: Busca Por Ator.");
-
-			this.ator = (AtorBean) this.a.buscar(this.ator, this.idParametro);
-
-			return "/visao/projeto/lista-ator";
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Busca Por Ator.");
-
-			return "/visao/projeto/lista-ator";
-
-		}
-
-	}
-
-	public String paginaExcluirAtor() {
-
-		try {
-
-			this.logger.info("Controle: Excluido Ator.");
-
-			this.ator = this.atores.getRowData();
-
-			this.a.remover(this.ator);
-
-			return "/visao/projeto/lista-ator";
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Excluido Ator. ");
-
-			return "/visao/projeto/lista-ator";
-		}
-
-	}
-
-	// Parte Pertencente ao projeto.
 	public DataModel<ProjetoDeTesteBean> getListaProjetos() {
 
 		try {
@@ -215,6 +66,46 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 			e.printStackTrace();
 
 			this.logger.error("Controle: Lista Projeto De Teste.");
+
+			return null;
+		}
+
+	}
+	
+	public DataModel<AtorBean> getListaAtoresNoProjeto() {
+
+		try {
+
+			this.logger.info("Controle: Lista Atores No Projeto.");
+
+			List<AtorBean> ats = null;
+			
+			DataModel<AtorBean> atores;
+
+			Long i = null;
+
+			for (ProjetoDeTesteBean p : this.listar()) {
+
+				i += 1;
+
+				if (this.projeto.getIdProjetoDeTeste() == p
+						.getIdProjetoDeTeste()) {
+
+				}
+
+			}
+
+			this.projeto.setQuantidadeAtor(i);
+
+			atores = new ListDataModel<AtorBean>(ats);
+
+			return atores;
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			this.logger.error("Controle: Lista Ator.");
 
 			return null;
 		}
@@ -290,8 +181,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 				this.projeto.setDataAtualizacao(new Date());
 
-				this.projeto.setCodigoAtor(this.ator.getCodigoAtor());
-
 				this.projeto.setCodigoProjetoDeTeste(this.projeto
 						.getIdProjetoDeTeste());
 
@@ -340,7 +229,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public void remover(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Controle: Remover Projeto De Teste.");
+		this.logger.info("Controle: Servico: Remover Projeto De Teste.");
 
 		this.p.remover(objeto);
 
@@ -349,7 +238,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public void salvar(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Controle: Salvar Projeto De Teste.");
+		this.logger.info("Controle: Servico: Salvar Projeto De Teste.");
 
 		this.p.salvar(objeto);
 
@@ -358,7 +247,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	@Override
 	public void atualizar(ProjetoDeTesteBean objeto) throws Exception {
 
-		this.logger.info("Controle: Atualizar Projeto De Teste.");
+		this.logger.info("Controle: Servico: Atualizar Projeto De Teste.");
 
 		this.p.atualizar(objeto);
 
@@ -368,7 +257,7 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	public ProjetoDeTesteBean buscar(ProjetoDeTesteBean objeto, Long id)
 			throws Exception {
 
-		this.logger.info("Controle: Buscar Projeto De Teste.");
+		this.logger.info("Controle: Servico: Buscar Projeto De Teste.");
 
 		return this.p.buscar(objeto, id);
 
@@ -398,14 +287,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 		this.tipoParametro = tipoParametro;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public ProjetoDeTesteServico getP() {
 		return p;
 	}
@@ -428,30 +309,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	public void setProjetos(DataModel<ProjetoDeTesteBean> projetos) {
 		this.projetos = projetos;
-	}
-
-	public AtorBean getAtor() {
-		return ator;
-	}
-
-	public void setAtor(AtorBean ator) {
-		this.ator = ator;
-	}
-
-	public DataModel<AtorBean> getAtores() {
-		return atores;
-	}
-
-	public void setAtores(DataModel<AtorBean> atores) {
-		this.atores = atores;
-	}
-
-	public AtorServico getA() {
-		return a;
-	}
-
-	public void setA(AtorServico a) {
-		this.a = a;
 	}
 
 	public Long getQuantidadeProjeto() {

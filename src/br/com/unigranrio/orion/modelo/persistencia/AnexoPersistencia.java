@@ -35,7 +35,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 	public void novaSessao(Session sessao) {
 
-		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
+		this.logger.info("Persistencia: Nova Sessao Anexo.");
 
 		this.sessao = sessao;
 
@@ -48,7 +48,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString());
+			this.logger.info("Persistencia: Salvar Anexo.");
 
 			this.transacao.begin();
 
@@ -62,8 +62,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Salvar Anexo." + e.getMessage());
 
 		}
 
@@ -74,7 +73,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString());
+			this.logger.info("Persistencia: Atualizar Anexo.");
 
 			this.transacao.begin();
 
@@ -88,8 +87,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString()
-					+ " " + e.getMessage());
+			this.logger.info("Persistencia: Atualizar Anexo."+ e.getMessage());
 
 		}
 
@@ -100,7 +98,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString());
+			this.logger.info("Persistencia: Remover Anexo. ");
 
 			this.transacao.begin();
 
@@ -126,7 +124,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Buscar. " + objeto.toString());
+			this.logger.info("Persistencia: Buscar Anexo.");
 
 			this.anexo = (AnexoBean) this.sessao.get(AnexoBean.class, id);
 
@@ -136,7 +134,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia Buscar." + e.getMessage());
+			this.logger.info("Persistencia Buscar Anexo." + e.getMessage());
 
 			return null;
 
@@ -149,7 +147,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Listar.");
+			this.logger.info("Persistencia: Listar Anexo.");
 
 			this.anexos = (List<AnexoBean>) this.sessao.createCriteria(
 					AnexoBean.class).list();
@@ -160,7 +158,7 @@ public class AnexoPersistencia implements PadraoInterface<AnexoBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar." + e.getMessage());
+			this.logger.info("Persistencia: Listar Anexo." + e.getMessage());
 
 			return null;
 

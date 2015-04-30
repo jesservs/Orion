@@ -18,7 +18,7 @@ public class DiagramaServico implements PadraoInterface<DiagramaBean> {
 	@Override
 	public void atualizar(DiagramaBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Diagrama.");
 
 		this.d.atualizar(objeto);
 
@@ -27,7 +27,7 @@ public class DiagramaServico implements PadraoInterface<DiagramaBean> {
 	@Override
 	public DiagramaBean buscar(DiagramaBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Diagrama.");
 
 		return this.d.buscar(objeto, id);
 	}
@@ -35,7 +35,7 @@ public class DiagramaServico implements PadraoInterface<DiagramaBean> {
 	@Override
 	public List<DiagramaBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Diagrama.");
 
 		return this.d.listar();
 	}
@@ -43,7 +43,7 @@ public class DiagramaServico implements PadraoInterface<DiagramaBean> {
 	@Override
 	public void remover(DiagramaBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Diagrama.");
 
 		this.d.remover(objeto);
 
@@ -52,7 +52,7 @@ public class DiagramaServico implements PadraoInterface<DiagramaBean> {
 	@Override
 	public void salvar(DiagramaBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Diagrama.");
 
 		this.d.salvar(objeto);
 

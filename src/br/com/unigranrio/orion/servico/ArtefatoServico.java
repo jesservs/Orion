@@ -22,7 +22,7 @@ public class ArtefatoServico implements PadraoInterface<ArtefatoBean> {
 	@Override
 	public void atualizar(ArtefatoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Artefato.");
 
 		this.a.atualizar(objeto);
 
@@ -31,7 +31,7 @@ public class ArtefatoServico implements PadraoInterface<ArtefatoBean> {
 	@Override
 	public ArtefatoBean buscar(ArtefatoBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Artefato.");
 
 		return this.a.buscar(objeto, id);
 	}
@@ -39,7 +39,7 @@ public class ArtefatoServico implements PadraoInterface<ArtefatoBean> {
 	@Override
 	public List<ArtefatoBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Artefato.");
 
 		return this.a.listar();
 	}
@@ -47,7 +47,7 @@ public class ArtefatoServico implements PadraoInterface<ArtefatoBean> {
 	@Override
 	public void remover(ArtefatoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover  Artefato." + objeto.toString());
 
 		this.a.remover(objeto);
 
@@ -56,7 +56,7 @@ public class ArtefatoServico implements PadraoInterface<ArtefatoBean> {
 	@Override
 	public void salvar(ArtefatoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Artefato" + objeto.toString());
 
 		this.a.salvar(objeto);
 

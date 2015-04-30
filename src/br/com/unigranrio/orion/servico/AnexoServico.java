@@ -22,7 +22,7 @@ public class AnexoServico implements PadraoInterface<AnexoBean> {
 	@Override
 	public void atualizar(AnexoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Anexo.");
 
 		this.a.atualizar(objeto);
 
@@ -31,7 +31,7 @@ public class AnexoServico implements PadraoInterface<AnexoBean> {
 	@Override
 	public AnexoBean buscar(AnexoBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Anexo.");
 
 		return this.a.buscar(objeto, id);
 	}
@@ -39,7 +39,7 @@ public class AnexoServico implements PadraoInterface<AnexoBean> {
 	@Override
 	public List<AnexoBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Anexo.");
 
 		return this.a.listar();
 	}
@@ -47,7 +47,7 @@ public class AnexoServico implements PadraoInterface<AnexoBean> {
 	@Override
 	public void remover(AnexoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Anexo.");
 
 		this.a.remover(objeto);
 
@@ -56,7 +56,7 @@ public class AnexoServico implements PadraoInterface<AnexoBean> {
 	@Override
 	public void salvar(AnexoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Anexo.");
 
 		this.a.salvar(objeto);
 

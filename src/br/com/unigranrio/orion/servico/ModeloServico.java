@@ -18,7 +18,7 @@ public class ModeloServico implements PadraoInterface<ModeloBean> {
 	@Override
 	public void atualizar(ModeloBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Modelo.");
 
 		this.m.atualizar(objeto);
 
@@ -27,7 +27,7 @@ public class ModeloServico implements PadraoInterface<ModeloBean> {
 	@Override
 	public ModeloBean buscar(ModeloBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Modelo.");
 
 		return this.m.buscar(objeto, id);
 	}
@@ -35,7 +35,7 @@ public class ModeloServico implements PadraoInterface<ModeloBean> {
 	@Override
 	public List<ModeloBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Modelo.");
 
 		return this.m.listar();
 	}
@@ -43,7 +43,7 @@ public class ModeloServico implements PadraoInterface<ModeloBean> {
 	@Override
 	public void remover(ModeloBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Modelo.");
 
 		this.m.remover(objeto);
 
@@ -52,7 +52,7 @@ public class ModeloServico implements PadraoInterface<ModeloBean> {
 	@Override
 	public void salvar(ModeloBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Modelo.");
 
 		this.m.salvar(objeto);
 

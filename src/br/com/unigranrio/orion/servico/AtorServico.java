@@ -22,7 +22,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	@Override
 	public void atualizar(AtorBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Ator.");
 
 		this.a.atualizar(objeto);
 
@@ -31,7 +31,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	@Override
 	public AtorBean buscar(AtorBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Ator.");
 
 		return this.a.buscar(objeto, id);
 	}
@@ -39,7 +39,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	@Override
 	public List<AtorBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Ator.");
 
 		return this.a.listar();
 	}
@@ -47,7 +47,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	@Override
 	public void remover(AtorBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Ator.");
 
 		this.a.remover(objeto);
 
@@ -56,7 +56,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	@Override
 	public void salvar(AtorBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Ator.");
 
 		this.a.salvar(objeto);
 

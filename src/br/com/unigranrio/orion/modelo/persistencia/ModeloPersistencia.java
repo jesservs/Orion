@@ -34,7 +34,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 	public void novaSessao(Session sessao) {
 
-		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
+		this.logger.info("Persistencia: Nova Sessao Modelo.");
 
 		this.sessao = sessao;
 
@@ -47,7 +47,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString());
+			this.logger.info("Persistencia: Salvar Modelo.");
 
 			this.transacao.begin();
 
@@ -61,8 +61,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Salvar Modelo." + e.getMessage());
 
 		}
 
@@ -73,7 +72,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString());
+			this.logger.info("Persistencia: Atualizar Modelo.");
 
 			this.transacao.begin();
 
@@ -87,8 +86,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString()
-					+ " " + e.getMessage());
+			this.logger.info("Persistencia: Atualizar Modelo."+ e.getMessage());
 
 		}
 
@@ -99,7 +97,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString());
+			this.logger.info("Persistencia: Remover Modelo.");
 
 			this.transacao.begin();
 
@@ -113,8 +111,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString()
-					+ e.getMessage());
+			this.logger.info("Persistencia: Remover Modelo."+e.getMessage());
 
 		}
 
@@ -125,7 +122,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Buscar. " + objeto.toString());
+			this.logger.info("Persistencia: Buscar Modelo.");
 
 			this.modelo = (ModeloBean) this.sessao.get(ModeloBean.class, id);
 
@@ -135,7 +132,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia Buscar." + e.getMessage());
+			this.logger.info("Persistencia Buscar Modelo." + e.getMessage());
 
 			return null;
 
@@ -148,7 +145,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Listar.");
+			this.logger.info("Persistencia: Listar Modelo.");
 
 			this.modelos = (List<ModeloBean>) this.sessao.createCriteria(
 					ModeloBean.class).list();
@@ -159,7 +156,7 @@ public class ModeloPersistencia implements PadraoInterface<ModeloBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar." + e.getMessage());
+			this.logger.info("Persistencia: Listar Modelo." + e.getMessage());
 
 			return null;
 

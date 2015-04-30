@@ -34,7 +34,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 	public void novaSessao(Session sessao) {
 
-		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
+		this.logger.info("Persistencia: Nova Sessao Diagrama.");
 
 		this.sessao = sessao;
 
@@ -47,7 +47,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString());
+			this.logger.info("Persistencia: Salvar Diagrama.");
 
 			this.transacao.begin();
 
@@ -61,8 +61,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar." + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Salvar Diagrama." + e.getMessage());
 
 		}
 
@@ -73,7 +72,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString());
+			this.logger.info("Persistencia: Atualizar Diagrama.");
 
 			this.transacao.begin();
 
@@ -87,8 +86,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString()
-					+ " " + e.getMessage());
+			this.logger.info("Persistencia: Atualizar Diagrama." + e.getMessage());
 
 		}
 
@@ -99,7 +97,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString());
+			this.logger.info("Persistencia: Remover Diagrama.");
 
 			this.transacao.begin();
 
@@ -113,8 +111,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString()
-					+ e.getMessage());
+			this.logger.info("Persistencia: Remover Diagrama." + e.getMessage());
 
 		}
 
@@ -125,7 +122,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Buscar. " + objeto.toString());
+			this.logger.info("Persistencia: Buscar Diagrama.");
 
 			this.dagrama = (DiagramaBean) this.sessao.get(DiagramaBean.class,
 					id);
@@ -136,7 +133,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia Buscar." + e.getMessage());
+			this.logger.info("Persistencia Buscar Diagrama." + e.getMessage());
 
 			return null;
 
@@ -149,7 +146,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 		try {
 
-			this.logger.info("Persistencia: Listar.");
+			this.logger.info("Persistencia: Listar Diagrama.");
 
 			this.diagramas = (List<DiagramaBean>) this.sessao.createCriteria(
 					DiagramaBean.class).list();
@@ -160,7 +157,7 @@ public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar." + e.getMessage());
+			this.logger.info("Persistencia: Listar Diagrama." + e.getMessage());
 
 			return null;
 

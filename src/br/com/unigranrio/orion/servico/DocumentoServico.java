@@ -23,7 +23,7 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 	@Override
 	public void atualizar(DocumentoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Atualizar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Atualizar Documento.");
 
 		this.d.atualizar(objeto);
 
@@ -32,7 +32,7 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 	@Override
 	public DocumentoBean buscar(DocumentoBean objeto, Long id) throws Exception {
 
-		this.logger.info("Servico: Buscar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Buscar Documento.");
 
 		return this.d.buscar(objeto, id);
 	}
@@ -40,7 +40,7 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 	@Override
 	public List<DocumentoBean> listar() throws Exception {
 
-		this.logger.info("Servico: Listar");
+		this.logger.info("Servico: Persistencia: Listar Documento.");
 
 		return this.d.listar();
 	}
@@ -48,7 +48,7 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 	@Override
 	public void remover(DocumentoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Remover " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Remover Documento.");
 
 		this.d.remover(objeto);
 
@@ -57,7 +57,7 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 	@Override
 	public void salvar(DocumentoBean objeto) throws Exception {
 
-		this.logger.info("Servico: Salvar " + objeto.toString());
+		this.logger.info("Servico: Persistencia: Salvar Documento.");
 
 		this.d.salvar(objeto);
 
