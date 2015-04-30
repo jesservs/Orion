@@ -14,8 +14,6 @@ public final class ProjetoDeTesteServico implements
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private ProjetoDeTesteBean projeto;
-
 	private ProjetoDeTestePersistencia p = new ProjetoDeTestePersistencia();
 
 	public ProjetoDeTesteServico() {
@@ -64,14 +62,6 @@ public final class ProjetoDeTesteServico implements
 
 		this.p.salvar(objeto);
 
-	}
-
-	public ProjetoDeTesteBean getProjeto() {
-		return projeto;
-	}
-
-	public void setProjeto(ProjetoDeTesteBean projeto) {
-		this.projeto = projeto;
 	}
 
 	public void setP(ProjetoDeTestePersistencia p) {

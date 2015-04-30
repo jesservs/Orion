@@ -33,177 +33,22 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 	private String tipoParametro;
 
 	private Long quantidadeProjeto;
-	
+
 	private String nome;
 
 	private ProjetoDeTesteServico p = new ProjetoDeTesteServico();
 
 	private AtorServico a = new AtorServico();
 
-	private DocumentoServico d = new DocumentoServico();
-
 	private AtorBean ator = new AtorBean();
 
 	private ProjetoDeTesteBean projeto = new ProjetoDeTesteBean();
-
-	private DocumentoBean documento = new DocumentoBean();
-
-	private DataModel<DocumentoBean> documentos = new ListDataModel<DocumentoBean>();
 
 	private DataModel<AtorBean> atores = new ListDataModel<AtorBean>();
 
 	private DataModel<ProjetoDeTesteBean> projetos = new ListDataModel<ProjetoDeTesteBean>();
 
 	public ProjetoControle() {
-		
-	}
-
-	// Parte Pertencente ao Documento.
-	public String paginaSalvarDocumento() {
-
-		try {
-
-			if (this.documento.getIdDocumento() == 0 || this.documento.getIdDocumento() == null) {
-
-				this.logger.info("Controle: Cadastro Documento.");
-
-				this.documento.setCodigoAtor(this.ator.getIdAtor());
-
-				this.documento.setCodigoDocumento(this.documento
-						.getIdDocumento());
-
-				this.documento.setDataCriacao(new Date());
-
-				this.documento.setDataAtualizacao(new Date());
-
-				this.documento.setCodigoProjeto(this.projeto
-						.getCodigoProjetoDeTeste());
-
-				this.d.salvar(this.documento);
-
-				this.documento = new DocumentoBean();
-
-				return "/visao/projeto/lista-projeto";
-
-			} else {
-
-				this.logger.info("Controle: Atualização Documento.");
-
-				this.documento.setDataAtualizacao(new Date());
-
-				this.d.atualizar(this.documento);
-
-				this.documento = new DocumentoBean();
-
-				return "/visao/projeto/lista-documento";
-
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Atualização ou Cadastro Documento.");
-
-			return "/visao/projeto/lista-ator";
-
-		}
-
-	}
-
-	public DataModel<DocumentoBean> getListaDocumentos() {
-
-		try {
-
-			this.logger.info("Controle: Lista Documento.");
-
-			List<DocumentoBean> dts = null;
-
-			Long i = null;
-
-			for (ProjetoDeTesteBean p : this.listar()) {
-
-				i += 1;
-
-				if (this.projeto.getIdProjetoDeTeste() == p
-						.getIdProjetoDeTeste()) {
-
-					dts.add(p.getDocumentos().get(i.intValue()));
-
-				}
-
-			}
-
-			this.projeto.setQuantidadeDocumento(i);
-
-			this.documentos = new ListDataModel<DocumentoBean>(dts);
-
-			return this.documentos;
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Lista Documento.");
-
-			return null;
-		}
-
-	}
-
-	public String paginaAtualizarDocumento() {
-
-		this.logger.info("Controle: Atualização Documento.");
-
-		this.documento = this.documentos.getRowData();
-
-		return "/visao/projeto/formulario-documento";
-
-	}
-
-	public String paginaBuscarDocumento() {
-
-		try {
-
-			this.logger.info("Controle: Busca Por Documento.");
-
-			this.documento = (DocumentoBean) this.d.buscar(this.documento,
-					this.idParametro);
-
-			return "/visao/projeto/lista-documento";
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Busca Por documento.");
-
-			return "/visao/projeto/lista-documento";
-
-		}
-
-	}
-
-	public String paginaExcluirDocumento() {
-
-		try {
-
-			this.logger.info("Controle: Excluido Documento.");
-
-			this.documento = this.documentos.getRowData();
-
-			this.d.remover(this.documento);
-
-			return "/visao/projeto/lista-documento";
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			this.logger.error("Controle: Excluido Documento. ");
-
-			return "/visao/projeto/lista-documento";
-		}
 
 	}
 
@@ -267,8 +112,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 				if (this.projeto.getIdProjetoDeTeste() == p
 						.getIdProjetoDeTeste()) {
-
-					ats.add(p.getEnvolvidos().get(i.intValue()));
 
 				}
 
@@ -352,15 +195,15 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 		try {
 
 			this.logger.info("Controle: Lista Projeto De Teste.");
-			
+
 			Long i = null;
-			
-			for(ProjetoDeTesteBean p: listar()){
-				
+
+			for (ProjetoDeTesteBean p : listar()) {
+
 				i += 1;
-				
+
 			}
-			
+
 			this.quantidadeProjeto = i;
 
 			this.projetos = new ListDataModel<ProjetoDeTesteBean>(this.listar());
@@ -617,30 +460,6 @@ public class ProjetoControle implements PadraoInterface<ProjetoDeTesteBean> {
 
 	public void setQuantidadeProjeto(Long quantidadeProjeto) {
 		this.quantidadeProjeto = quantidadeProjeto;
-	}
-
-	public DocumentoServico getD() {
-		return d;
-	}
-
-	public void setD(DocumentoServico d) {
-		this.d = d;
-	}
-
-	public DocumentoBean getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(DocumentoBean documento) {
-		this.documento = documento;
-	}
-
-	public DataModel<DocumentoBean> getDocumentos() {
-		return documentos;
-	}
-
-	public void setDocumentos(DataModel<DocumentoBean> documentos) {
-		this.documentos = documentos;
 	}
 
 }

@@ -8,19 +8,19 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.modelo.sistema.DocumentoBean;
+import br.com.unigranrio.orion.modelo.sistema.DiagramaBean;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
-public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
+public class DiagramaPersistencia implements PadraoInterface<DiagramaBean>,
 		Serializable {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private static final long serialVersionUID = -6813121635312887948L;
 
-	private DocumentoBean documento = null;
+	private DiagramaBean dagrama = null;
 
-	private List<DocumentoBean> documentos = null;
+	private List<DiagramaBean> diagramas = null;
 
 	private StringBuilder sql = null;
 
@@ -28,13 +28,13 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 
 	private Transaction transacao = null;
 
-	public DocumentoPersistencia() {
-
+	public DiagramaPersistencia() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void novaSessao(Session sessao) {
-		
-		this.logger.info("Persistencia: Nova Sessao. "+ sessao.toString());
+
+		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
 
 		this.sessao = sessao;
 
@@ -43,7 +43,7 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 	}
 
 	@Override
-	public void salvar(DocumentoBean objeto) throws Exception {
+	public void salvar(DiagramaBean objeto) throws Exception {
 
 		try {
 
@@ -61,15 +61,15 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 
 			this.transacao.rollback();
 
-			this.logger
-					.info("Persistencia: Salvar." + objeto.toString() + " "+ e.getMessage());
+			this.logger.info("Persistencia: Salvar." + objeto.toString() + " "
+					+ e.getMessage());
 
 		}
 
 	}
 
 	@Override
-	public void atualizar(DocumentoBean objeto) throws Exception {
+	public void atualizar(DiagramaBean objeto) throws Exception {
 
 		try {
 
@@ -87,14 +87,15 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar." + objeto.toString() + " " + e.getMessage());
+			this.logger.info("Persistencia: Atualizar." + objeto.toString()
+					+ " " + e.getMessage());
 
 		}
 
 	}
 
 	@Override
-	public void remover(DocumentoBean objeto) throws Exception {
+	public void remover(DiagramaBean objeto) throws Exception {
 
 		try {
 
@@ -120,23 +121,22 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 	}
 
 	@Override
-	public DocumentoBean buscar(DocumentoBean objeto, Long id) throws Exception {
+	public DiagramaBean buscar(DiagramaBean objeto, Long id) throws Exception {
 
 		try {
 
 			this.logger.info("Persistencia: Buscar. " + objeto.toString());
 
-			this.documento = (DocumentoBean) this.sessao.get(
-					DocumentoBean.class, id);
+			this.dagrama = (DiagramaBean) this.sessao.get(DiagramaBean.class,
+					id);
 
-			return this.documento;
+			return this.dagrama;
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 
-			this.logger
-					.info("Persistencia Buscar." + e.getMessage());
+			this.logger.info("Persistencia Buscar." + e.getMessage());
 
 			return null;
 
@@ -145,23 +145,22 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 	}
 
 	@Override
-	public List<DocumentoBean> listar() throws Exception {
+	public List<DiagramaBean> listar() throws Exception {
 
 		try {
 
 			this.logger.info("Persistencia: Listar.");
 
-			this.documentos = (List<DocumentoBean>) this.sessao.createCriteria(
-					DocumentoBean.class).list();
+			this.diagramas = (List<DiagramaBean>) this.sessao.createCriteria(
+					DiagramaBean.class).list();
 
-			return this.documentos;
+			return this.diagramas;
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 
-			this.logger
-					.info("Persistencia: Listar." + e.getMessage());
+			this.logger.info("Persistencia: Listar." + e.getMessage());
 
 			return null;
 
@@ -169,20 +168,20 @@ public class DocumentoPersistencia implements PadraoInterface<DocumentoBean>,
 
 	}
 
-	public DocumentoBean getDocumento() {
-		return documento;
+	public DiagramaBean getDagrama() {
+		return dagrama;
 	}
 
-	public void setDocumento(DocumentoBean documento) {
-		this.documento = documento;
+	public void setDagrama(DiagramaBean dagrama) {
+		this.dagrama = dagrama;
 	}
 
-	public List<DocumentoBean> getDocumentos() {
-		return documentos;
+	public List<DiagramaBean> getDiagramas() {
+		return diagramas;
 	}
 
-	public void setDocumentos(List<DocumentoBean> documentos) {
-		this.documentos = documentos;
+	public void setDiagramas(List<DiagramaBean> diagramas) {
+		this.diagramas = diagramas;
 	}
 
 	public StringBuilder getSql() {

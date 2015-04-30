@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
-import br.com.unigranrio.orion.util.HibernateUtil;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
 public class ProjetoDeTestePersistencia implements
@@ -19,23 +18,23 @@ public class ProjetoDeTestePersistencia implements
 
 	private static final long serialVersionUID = -6813121635312887948L;
 
-	private ProjetoDeTesteBean projeto;
+	private ProjetoDeTesteBean projeto = null;
 
-	private List<ProjetoDeTesteBean> projetos;
+	private List<ProjetoDeTesteBean> projetos = null;
 
-	private StringBuilder sql;
+	private StringBuilder sql = null;
 
-	private Session sessao;
+	private Session sessao = null;
 
-	private Transaction transacao;
+	private Transaction transacao = null;
 
 	public ProjetoDeTestePersistencia() {
 
 	}
 
 	public void novaSessao(Session sessao) {
-		
-		this.logger.info("Persistencia: Nova Sessao. "+ sessao.toString());
+
+		this.logger.info("Persistencia: Nova Sessao. " + sessao.toString());
 
 		this.sessao = sessao;
 
@@ -62,7 +61,7 @@ public class ProjetoDeTestePersistencia implements
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Salvar. " + objeto.toString() + " " 
+			this.logger.info("Persistencia: Salvar. " + objeto.toString() + " "
 					+ e.getMessage());
 
 		}
@@ -88,8 +87,8 @@ public class ProjetoDeTestePersistencia implements
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Atualizar. " + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Atualizar. " + objeto.toString()
+					+ " " + e.getMessage());
 
 		}
 
@@ -114,8 +113,8 @@ public class ProjetoDeTestePersistencia implements
 
 			this.transacao.rollback();
 
-			this.logger.info("Persistencia: Remover. " + objeto.toString() + " "
-					+ e.getMessage());
+			this.logger.info("Persistencia: Remover. " + objeto.toString()
+					+ " " + e.getMessage());
 
 		}
 
@@ -154,7 +153,7 @@ public class ProjetoDeTestePersistencia implements
 
 			this.logger.info("Persistencia: Listar. ");
 
-			this.projetos = (List<ProjetoDeTesteBean>) this.sessao
+			this.projetos = this.sessao
 					.createCriteria(ProjetoDeTesteBean.class).list();
 
 			return this.projetos;
@@ -163,8 +162,7 @@ public class ProjetoDeTestePersistencia implements
 
 			e.printStackTrace();
 
-			this.logger.info("Persistencia: Listar ."
-					+ e.getMessage());
+			this.logger.info("Persistencia: Listar ." + e.getMessage());
 
 			return null;
 
@@ -211,5 +209,6 @@ public class ProjetoDeTestePersistencia implements
 	public void setProjetos(List<ProjetoDeTesteBean> projetos) {
 		this.projetos = projetos;
 	}
+
 
 }

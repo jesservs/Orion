@@ -6,6 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.slf4j.Logger;
 
+import br.com.unigranrio.orion.modelo.persistencia.DaoFactory;
+import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
+
 public class HibernateUtil implements Serializable {
 
 	private static final long serialVersionUID = -8842742445773664613L;
@@ -18,14 +21,14 @@ public class HibernateUtil implements Serializable {
 
 			AnnotationConfiguration cfg = new AnnotationConfiguration();
 
-			cfg.configure();
+			cfg.configure("hibernate.cfg.xml");
 
 			return cfg.buildSessionFactory();
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			
+
 			return null;
 
 		}

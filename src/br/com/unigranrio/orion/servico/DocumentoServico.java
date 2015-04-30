@@ -14,8 +14,6 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private DocumentoBean documento;
-
 	private DocumentoPersistencia d = new DocumentoPersistencia();
 
 	public DocumentoServico() {
@@ -63,14 +61,6 @@ public class DocumentoServico implements PadraoInterface<DocumentoBean> {
 
 		this.d.salvar(objeto);
 
-	}
-
-	public DocumentoBean getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(DocumentoBean documento) {
-		this.documento = documento;
 	}
 
 	public DocumentoPersistencia getD() {

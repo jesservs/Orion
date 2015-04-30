@@ -18,15 +18,15 @@ public class AtorPersistencia implements PadraoInterface<AtorBean>,
 
 	private static final long serialVersionUID = -6813121635312887948L;
 
-	private AtorBean ator;
+	private AtorBean ator = null;
 
-	private List<AtorBean> atores;
+	private List<AtorBean> atores = null;
 
-	private StringBuilder sql;
+	private StringBuilder sql = null;
 
-	private Session sessao;
+	private Session sessao = null;
 
-	private Transaction transacao;
+	private Transaction transacao = null;
 
 	public AtorPersistencia() {
 

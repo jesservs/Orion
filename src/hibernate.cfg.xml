@@ -11,27 +11,13 @@
 		<property name="hibernate.connection.password">postgres</property>
 		<property name="hibernate.default_schema">public</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">false</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		
 		<mapping class="br.com.unigranrio.orion.modelo.usuario.AtorBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.ArtefatoBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.CasoDeTesteBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.ClassificacaoDeImpactoBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.DiagramaBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.DocumentoBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.EspecificacaoDeCasoDeTesteBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.EspecificacaoDeProjetoDeTesteBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.EstimativaDeCustoDeTesteBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.EstudoDeViabilidadeBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.HistoricoAlteracaoBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.HistoricoBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.ModeloBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.PlanoDeTesteBean" />
 		<mapping class="br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean" />
-		<mapping class="br.com.unigranrio.orion.modelo.sistema.TesteBean" />
 		
 	</session-factory>
 </hibernate-configuration>

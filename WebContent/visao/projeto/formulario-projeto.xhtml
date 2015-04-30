@@ -63,7 +63,7 @@
 				<p:inputText value="#{projetoControle.projeto.dataAtualizacao}" style="width: 377px;" disabled="true"/>
 
 				<p:outputLabel value="Fase:"/>
-				<p:selectOneMenu value="#{projetoControle.projeto.fase}" style="width: 380px;">
+				<p:selectOneMenu value="#{projetoControle.projeto.fase}" style="width: 385px;">
 					<f:selectItem itemLabel="" itemValue="" />
 					<f:selectItem itemLabel="Planejamento" itemValue="Planejamento" />
 					<f:selectItem itemLabel="Preparação" itemValue="Preparação" />
@@ -72,20 +72,15 @@
 					<f:selectItem itemLabel="Entrega" itemValue="Entrega" />
 			    </p:selectOneMenu>
 
-				<p:outputLabel value="Gerenciado:" />
-				<p:selectOneMenu value="#{projetoControle.projeto.gerenciado}" style="width: 380px;">
-					<f:selectItem itemLabel="" itemValue="" />
-					<f:selectItem itemLabel="Gerência de requisitos" itemValue="Gerência de requisitos" />
-					<f:selectItem itemLabel="Planejamento de projeto" itemValue="Planejamento de projeto" />
-					<f:selectItem itemLabel="Controle e monitoração de projeto" itemValue="Controle e monitoração de projeto" />
-					<f:selectItem itemLabel="Medições e análise" itemValue="Medições e análise" />
-					<f:selectItem itemLabel="Garantia de qualidade de produto e processo" itemValue="Garantia de qualidade de produto e processo" />
-					<f:selectItem itemLabel="Gerência de configuração" itemValue="Gerência de configuração" />
-				</p:selectOneMenu>
-				
-				<p:outputLabel value="Definido:" />
-				<p:selectOneMenu value="#{projetoControle.projeto.definido}" style="width: 380px;">
+				<p:outputLabel value="Sub Fase:" />
+				<p:selectOneMenu value="#{projetoControle.projeto.subfase}" style="width: 385px;">
 						<f:selectItem itemLabel="" itemValue="" />
+						<f:selectItem itemLabel="Gerência de requisitos" itemValue="Gerência de requisitos" />
+						<f:selectItem itemLabel="Planejamento de projeto" itemValue="Planejamento de projeto" />
+						<f:selectItem itemLabel="Controle e monitoração de projeto" itemValue="Controle e monitoração de projeto" />
+						<f:selectItem itemLabel="Medições e análise" itemValue="Medições e análise" />
+						<f:selectItem itemLabel="Garantia de qualidade de produto e processo" itemValue="Garantia de qualidade de produto e processo" />
+						<f:selectItem itemLabel="Gerência de configuração" itemValue="Gerência de configuração" />
 						<f:selectItem itemLabel="Desenvolvimento de requisitos" itemValue="Desenvolvimento de requisitos" />
 						<f:selectItem itemLabel="Solução técnica" itemValue="Solução técnica" />
 						<f:selectItem itemLabel="Integração de produto" itemValue="Integração de produto" />
@@ -100,39 +95,32 @@
 						<f:selectItem itemLabel="Gerência integrada de fornecedores" itemValue="Gerência integrada de fornecedores" />
 						<f:selectItem itemLabel="Resolução e análise de decisão" itemValue="Resolução e análise de decisão" />
 						<f:selectItem itemLabel="Ambiente organizacional para integração" itemValue="Ambiente organizacional para integração" />
-					</p:selectOneMenu>
-				
-					<p:outputLabel value="Quantitativamente:" />
-					<p:selectOneMenu value="#{projetoControle.projeto.quantitativamente}" style="width: 380px;">
-						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Desempenho do processo organizacional" itemValue="Desempenho do processo organizacional" />
 						<f:selectItem itemLabel="Gerência quantitativa de projeto" itemValue="Gerência quantitativa de projeto" />
-					</p:selectOneMenu>
-
-					<p:outputLabel value="Otimizado:" />
-					<p:selectOneMenu value="#{projetoControle.projeto.otimizado}" style="width: 380px;">
-						<f:selectItem itemLabel="" itemValue="" />
 						<f:selectItem itemLabel="Gerência quantitativa de projeto" itemValue="Gerência quantitativa de projeto" />
 						<f:selectItem itemLabel="Análise e resolução de causas" itemValue="Análise e resolução de causas" />
-					</p:selectOneMenu>
+				</p:selectOneMenu>
+				
+				
+				<p:outputLabel value="Descrição:"/>
+				
+				<p:editor widgetVar="editorWidget" value="#{projetoControle.projeto.descricao}" width="385" height="300"/>
 				
 				</h:panelGrid>				
 				
-				<p:separator />
-				
-				<h:panelGrid columns="6">
-				
 					<p:outputLabel value="Atores:"/>
+
+				<h:panelGrid columns="2">
+				
+					<p:outputLabel value="Quantidade:" />
+
+					<h:panelGroup >
 					
-					<h:outputText />
-			
-					<p:outputLabel value="Quantidade" />
-					
-					<p:inputText value="#{projetoControle.projeto.quantidadeAtor}" disabled="true" style="width: 162px;"/>	
+					<p:inputText value="#{projetoControle.projeto.quantidadeAtor}" disabled="true" style="width: 60px;"/>	
 			
 					<p:commandButton value="Novo" type="button" onclick="PF('dlg1').show();">
 
-						<p:dialog widgetVar="dlg1" modal="true" height="630" resizable="false"  style="background-color: #FFFFB2;">
+						<p:dialog widgetVar="dlg1" modal="true" height="630" resizable="false">
     						
     						<div style="background-color: black;">
     						<p:separator/>
@@ -146,7 +134,7 @@
 							
 							<h:inputHidden value="#{projetoControle.ator.idAtor}" />
 							
-							<h:panelGrid columns="2" style="background-color: #FFFFB2;">
+							<h:panelGrid columns="2">
 								
 								<p:outputLabel value="Matricula:" />
 								<p:inputText value="#{projetoControle.ator.matricula}" style="width: 377px;"/>
@@ -218,6 +206,8 @@
 				
 								<p:editor widgetVar="editorWidget" value="#{projetoControle.ator.descricao}" width="600" height="200"/>
 								
+								<p:separator/>
+								
 								<p:commandButton value="Cadastrar" action="#{projetoControle.paginaSalvarAtor}" />
 								
 								<p:commandButton value="Limpar" />
@@ -230,7 +220,7 @@
 						
 					<p:commandButton value="Listar" type="button" onclick="PF('dlg2').show();" >
 						
-						<p:dialog widgetVar="dlg2" modal="true" height="400" resizable="false" style="background-color: #FFFFB2;">
+						<p:dialog widgetVar="dlg2" modal="true" height="400" resizable="false">
 						
 							<div style="background-color: black;">
     						<p:separator/>
@@ -283,15 +273,13 @@
 						</p:dialog>
 					
 					</p:commandButton>
+				
+				</h:panelGroup>
 					
 				</h:panelGrid>
 				
-				<p:separator />
-				
-				<p:outputLabel value="Descrição:"/>
-				
-				<p:editor widgetVar="editorWidget" value="#{projetoControle.projeto.descricao}" width="550" height="200"/>
- 
+ 				<br/>
+ 				
 				&nbsp;&nbsp;<p:commandButton value="Concluir" action="#{projetoControle.paginaSalvarProjeto}"/>
 				
 				</h:form>

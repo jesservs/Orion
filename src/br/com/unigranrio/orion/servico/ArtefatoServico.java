@@ -5,22 +5,22 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.modelo.persistencia.AtorPersistencia;
-import br.com.unigranrio.orion.modelo.usuario.AtorBean;
+import br.com.unigranrio.orion.modelo.persistencia.ArtefatoPersistencia;
+import br.com.unigranrio.orion.modelo.sistema.ArtefatoBean;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
-public final class AtorServico implements PadraoInterface<AtorBean> {
+public class ArtefatoServico implements PadraoInterface<ArtefatoBean> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private AtorPersistencia a = new AtorPersistencia();
+	private ArtefatoPersistencia a = new ArtefatoPersistencia();
 
-	public AtorServico() {
-
+	public ArtefatoServico() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void atualizar(AtorBean objeto) throws Exception {
+	public void atualizar(ArtefatoBean objeto) throws Exception {
 
 		this.logger.info("Servico: Atualizar " + objeto.toString());
 
@@ -29,7 +29,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public AtorBean buscar(AtorBean objeto, Long id) throws Exception {
+	public ArtefatoBean buscar(ArtefatoBean objeto, Long id) throws Exception {
 
 		this.logger.info("Servico: Buscar " + objeto.toString());
 
@@ -37,7 +37,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public List<AtorBean> listar() throws Exception {
+	public List<ArtefatoBean> listar() throws Exception {
 
 		this.logger.info("Servico: Listar");
 
@@ -45,7 +45,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public void remover(AtorBean objeto) throws Exception {
+	public void remover(ArtefatoBean objeto) throws Exception {
 
 		this.logger.info("Servico: Remover " + objeto.toString());
 
@@ -54,7 +54,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public void salvar(AtorBean objeto) throws Exception {
+	public void salvar(ArtefatoBean objeto) throws Exception {
 
 		this.logger.info("Servico: Salvar " + objeto.toString());
 
@@ -62,12 +62,12 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 
 	}
 
-	public void setA(AtorPersistencia a) {
-		this.a = a;
+	public ArtefatoPersistencia getA() {
+		return a;
 	}
 
-	public AtorPersistencia getA() {
-		return a;
+	public void setA(ArtefatoPersistencia a) {
+		this.a = a;
 	}
 
 }

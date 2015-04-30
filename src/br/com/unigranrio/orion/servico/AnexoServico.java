@@ -5,22 +5,22 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.modelo.persistencia.AtorPersistencia;
-import br.com.unigranrio.orion.modelo.usuario.AtorBean;
+import br.com.unigranrio.orion.modelo.persistencia.AnexoPersistencia;
+import br.com.unigranrio.orion.modelo.sistema.AnexoBean;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
-public final class AtorServico implements PadraoInterface<AtorBean> {
+public class AnexoServico implements PadraoInterface<AnexoBean> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private AtorPersistencia a = new AtorPersistencia();
+	private AnexoPersistencia a = new AnexoPersistencia();
 
-	public AtorServico() {
-
+	public AnexoServico() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void atualizar(AtorBean objeto) throws Exception {
+	public void atualizar(AnexoBean objeto) throws Exception {
 
 		this.logger.info("Servico: Atualizar " + objeto.toString());
 
@@ -29,7 +29,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public AtorBean buscar(AtorBean objeto, Long id) throws Exception {
+	public AnexoBean buscar(AnexoBean objeto, Long id) throws Exception {
 
 		this.logger.info("Servico: Buscar " + objeto.toString());
 
@@ -37,7 +37,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public List<AtorBean> listar() throws Exception {
+	public List<AnexoBean> listar() throws Exception {
 
 		this.logger.info("Servico: Listar");
 
@@ -45,7 +45,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public void remover(AtorBean objeto) throws Exception {
+	public void remover(AnexoBean objeto) throws Exception {
 
 		this.logger.info("Servico: Remover " + objeto.toString());
 
@@ -54,7 +54,7 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 	}
 
 	@Override
-	public void salvar(AtorBean objeto) throws Exception {
+	public void salvar(AnexoBean objeto) throws Exception {
 
 		this.logger.info("Servico: Salvar " + objeto.toString());
 
@@ -62,12 +62,12 @@ public final class AtorServico implements PadraoInterface<AtorBean> {
 
 	}
 
-	public void setA(AtorPersistencia a) {
-		this.a = a;
+	public AnexoPersistencia getA() {
+		return a;
 	}
 
-	public AtorPersistencia getA() {
-		return a;
+	public void setA(AnexoPersistencia a) {
+		this.a = a;
 	}
 
 }

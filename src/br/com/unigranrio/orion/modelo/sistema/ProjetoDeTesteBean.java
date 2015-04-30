@@ -50,29 +50,17 @@ public final class ProjetoDeTesteBean implements Serializable {
 	@Column(name = "vs_fase")
 	private String fase;
 
-	@Column(name = "vs_fase_do_processo")
-	private String faseDoProcesso;
+	@Column(name = "vs_sub_fase")
+	private String subfase;
 
-	@ManyToOne
-	private AtorBean criador;
+	@Column(name = "vs_criador")
+	private String criador;
 
 	@OneToMany
-	private List<HistoricoAlteracaoBean> historicoAlteracao;
+	private List<AtorBean> atores;
 
 	@Column(name = "vs_sistema")
 	private String sistema;
-
-	@Column(name = "vs_gerenciado")
-	private String gerenciado;
-
-	@Column(name = "vs_definido")
-	private String definido;
-
-	@Column(name = "vs_quantitativamente")
-	private String quantitativamente;
-
-	@Column(name = "vs_otimizado")
-	private String otimizado;
 
 	@Column(name = "vs_cliente")
 	private String cliente;
@@ -85,24 +73,6 @@ public final class ProjetoDeTesteBean implements Serializable {
 
 	@Column(name = "vs_versao_do_projeto")
 	private Double versaoDoProjeto;
-
-	@OneToMany
-	private List<DocumentoBean> documentos;
-
-	@OneToMany
-	private List<AtorBean> envolvidos;
-
-	@OneToMany
-	private List<DiagramaBean> diagramas;
-
-	@OneToMany
-	private List<ArtefatoBean> artefatos;
-
-	@OneToMany
-	private List<ModeloBean> modelos;
-
-	@OneToMany
-	private List<TesteBean> testes;
 
 	@Column(name = "vn_quantidade_documento")
 	private Long quantidadeDocumento;
@@ -125,27 +95,18 @@ public final class ProjetoDeTesteBean implements Serializable {
 	@Column(name = "vn_quantidade_anexo")
 	private Long quantidadeAnexo;
 
-	@Column(name = "vs_atualizacoes")
-	private String atualizacoes;
-
 	public ProjetoDeTesteBean() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public ProjetoDeTesteBean(Long idProjetoDeTeste, Long codigoProjetoDeTeste,
 			Long codigoAtor, String descricao, Date dataCriacao,
-			Date dataAtualizacao, String fase, String faseDoProcesso,
-			AtorBean criador, List<HistoricoAlteracaoBean> historicoAlteracao,
-			String sistema, String gerenciado, String definido,
-			String quantitativamente, String otimizado, String cliente,
+			Date dataAtualizacao, String fase, String subfase, String criador,
+			List<AtorBean> atores, String sistema, String cliente,
 			String modulos, String nomeDoProjeto, Double versaoDoProjeto,
-			List<DocumentoBean> documentos, List<AtorBean> envolvidos,
-			List<DiagramaBean> diagramas, List<ArtefatoBean> artefatos,
-			List<ModeloBean> modelos, List<TesteBean> testes,
 			Long quantidadeDocumento, Long quantidadeAtor,
 			Long quantidadeDiagrama, Long quantidadeArtefato,
-			Long quantidadeModelo, Long quantidadeTeste, Long quantidadeAnexo,
-			String atualizacoes) {
+			Long quantidadeModelo, Long quantidadeTeste, Long quantidadeAnexo) {
 		super();
 		this.idProjetoDeTeste = idProjetoDeTeste;
 		this.codigoProjetoDeTeste = codigoProjetoDeTeste;
@@ -154,24 +115,14 @@ public final class ProjetoDeTesteBean implements Serializable {
 		this.dataCriacao = dataCriacao;
 		this.dataAtualizacao = dataAtualizacao;
 		this.fase = fase;
-		this.faseDoProcesso = faseDoProcesso;
+		this.subfase = subfase;
 		this.criador = criador;
-		this.historicoAlteracao = historicoAlteracao;
+		this.atores = atores;
 		this.sistema = sistema;
-		this.gerenciado = gerenciado;
-		this.definido = definido;
-		this.quantitativamente = quantitativamente;
-		this.otimizado = otimizado;
 		this.cliente = cliente;
 		this.modulos = modulos;
 		this.nomeDoProjeto = nomeDoProjeto;
 		this.versaoDoProjeto = versaoDoProjeto;
-		this.documentos = documentos;
-		this.envolvidos = envolvidos;
-		this.diagramas = diagramas;
-		this.artefatos = artefatos;
-		this.modelos = modelos;
-		this.testes = testes;
 		this.quantidadeDocumento = quantidadeDocumento;
 		this.quantidadeAtor = quantidadeAtor;
 		this.quantidadeDiagrama = quantidadeDiagrama;
@@ -179,7 +130,26 @@ public final class ProjetoDeTesteBean implements Serializable {
 		this.quantidadeModelo = quantidadeModelo;
 		this.quantidadeTeste = quantidadeTeste;
 		this.quantidadeAnexo = quantidadeAnexo;
-		this.atualizacoes = atualizacoes;
+	}
+
+	public String getSubfase() {
+		return subfase;
+	}
+
+	public void setSubfase(String subfase) {
+		this.subfase = subfase;
+	}
+
+	public List<AtorBean> getAtores() {
+		return atores;
+	}
+
+	public void setAtores(List<AtorBean> atores) {
+		this.atores = atores;
+	}
+
+	public void setCriador(String criador) {
+		this.criador = criador;
 	}
 
 	public Long getIdProjetoDeTeste() {
@@ -238,23 +208,6 @@ public final class ProjetoDeTesteBean implements Serializable {
 		this.fase = fase;
 	}
 
-	public AtorBean getCriador() {
-		return criador;
-	}
-
-	public void setCriador(AtorBean criador) {
-		this.criador = criador;
-	}
-
-	public List<HistoricoAlteracaoBean> getHistoricoAlteracao() {
-		return historicoAlteracao;
-	}
-
-	public void setHistoricoAlteracao(
-			List<HistoricoAlteracaoBean> historicoAlteracao) {
-		this.historicoAlteracao = historicoAlteracao;
-	}
-
 	public String getSistema() {
 		return sistema;
 	}
@@ -293,54 +246,6 @@ public final class ProjetoDeTesteBean implements Serializable {
 
 	public void setVersaoDoProjeto(Double versaoDoProjeto) {
 		this.versaoDoProjeto = versaoDoProjeto;
-	}
-
-	public List<DocumentoBean> getDocumentos() {
-		return documentos;
-	}
-
-	public void setDocumentos(List<DocumentoBean> documentos) {
-		this.documentos = documentos;
-	}
-
-	public List<AtorBean> getEnvolvidos() {
-		return envolvidos;
-	}
-
-	public void setEnvolvidos(List<AtorBean> envolvidos) {
-		this.envolvidos = envolvidos;
-	}
-
-	public List<DiagramaBean> getDiagramas() {
-		return diagramas;
-	}
-
-	public void setDiagramas(List<DiagramaBean> diagramas) {
-		this.diagramas = diagramas;
-	}
-
-	public List<ArtefatoBean> getArtefatos() {
-		return artefatos;
-	}
-
-	public void setArtefatos(List<ArtefatoBean> artefatos) {
-		this.artefatos = artefatos;
-	}
-
-	public List<ModeloBean> getModelos() {
-		return modelos;
-	}
-
-	public void setModelos(List<ModeloBean> modelos) {
-		this.modelos = modelos;
-	}
-
-	public List<TesteBean> getTestes() {
-		return testes;
-	}
-
-	public void setTestes(List<TesteBean> testes) {
-		this.testes = testes;
 	}
 
 	public Long getQuantidadeDocumento() {
@@ -391,22 +296,6 @@ public final class ProjetoDeTesteBean implements Serializable {
 		this.quantidadeTeste = quantidadeTeste;
 	}
 
-	public String getFaseDoProcesso() {
-		return faseDoProcesso;
-	}
-
-	public void setFaseDoProcesso(String faseDoProcesso) {
-		this.faseDoProcesso = faseDoProcesso;
-	}
-
-	public String getAtualizacoes() {
-		return atualizacoes;
-	}
-
-	public void setAtualizacoes(String atualizacoes) {
-		this.atualizacoes = atualizacoes;
-	}
-
 	public Long getQuantidadeAnexo() {
 		return quantidadeAnexo;
 	}
@@ -415,46 +304,11 @@ public final class ProjetoDeTesteBean implements Serializable {
 		this.quantidadeAnexo = quantidadeAnexo;
 	}
 
-	public String getGerenciado() {
-		return gerenciado;
-	}
-
-	public void setGerenciado(String gerenciado) {
-		this.gerenciado = gerenciado;
-	}
-
-	public String getDefinido() {
-		return definido;
-	}
-
-	public void setDefinido(String definido) {
-		this.definido = definido;
-	}
-
-	public String getQuantitativamente() {
-		return quantitativamente;
-	}
-
-	public void setQuantitativamente(String quantitativamente) {
-		this.quantitativamente = quantitativamente;
-	}
-
-	public String getOtimizado() {
-		return otimizado;
-	}
-
-	public void setOtimizado(String otimizado) {
-		this.otimizado = otimizado;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((artefatos == null) ? 0 : artefatos.hashCode());
-		result = prime * result
-				+ ((atualizacoes == null) ? 0 : atualizacoes.hashCode());
+		result = prime * result + ((atores == null) ? 0 : atores.hashCode());
 		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
 		result = prime * result
 				+ ((codigoAtor == null) ? 0 : codigoAtor.hashCode());
@@ -468,33 +322,14 @@ public final class ProjetoDeTesteBean implements Serializable {
 		result = prime * result
 				+ ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
 		result = prime * result
-				+ ((definido == null) ? 0 : definido.hashCode());
-		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result
-				+ ((diagramas == null) ? 0 : diagramas.hashCode());
-		result = prime * result
-				+ ((documentos == null) ? 0 : documentos.hashCode());
-		result = prime * result
-				+ ((envolvidos == null) ? 0 : envolvidos.hashCode());
 		result = prime * result + ((fase == null) ? 0 : fase.hashCode());
-		result = prime * result
-				+ ((faseDoProcesso == null) ? 0 : faseDoProcesso.hashCode());
-		result = prime * result
-				+ ((gerenciado == null) ? 0 : gerenciado.hashCode());
-		result = prime
-				* result
-				+ ((historicoAlteracao == null) ? 0 : historicoAlteracao
-						.hashCode());
 		result = prime
 				* result
 				+ ((idProjetoDeTeste == null) ? 0 : idProjetoDeTeste.hashCode());
-		result = prime * result + ((modelos == null) ? 0 : modelos.hashCode());
 		result = prime * result + ((modulos == null) ? 0 : modulos.hashCode());
 		result = prime * result
 				+ ((nomeDoProjeto == null) ? 0 : nomeDoProjeto.hashCode());
-		result = prime * result
-				+ ((otimizado == null) ? 0 : otimizado.hashCode());
 		result = prime * result
 				+ ((quantidadeAnexo == null) ? 0 : quantidadeAnexo.hashCode());
 		result = prime
@@ -516,12 +351,8 @@ public final class ProjetoDeTesteBean implements Serializable {
 				+ ((quantidadeModelo == null) ? 0 : quantidadeModelo.hashCode());
 		result = prime * result
 				+ ((quantidadeTeste == null) ? 0 : quantidadeTeste.hashCode());
-		result = prime
-				* result
-				+ ((quantitativamente == null) ? 0 : quantitativamente
-						.hashCode());
 		result = prime * result + ((sistema == null) ? 0 : sistema.hashCode());
-		result = prime * result + ((testes == null) ? 0 : testes.hashCode());
+		result = prime * result + ((subfase == null) ? 0 : subfase.hashCode());
 		result = prime * result
 				+ ((versaoDoProjeto == null) ? 0 : versaoDoProjeto.hashCode());
 		return result;
@@ -536,15 +367,10 @@ public final class ProjetoDeTesteBean implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ProjetoDeTesteBean other = (ProjetoDeTesteBean) obj;
-		if (artefatos == null) {
-			if (other.artefatos != null)
+		if (atores == null) {
+			if (other.atores != null)
 				return false;
-		} else if (!artefatos.equals(other.artefatos))
-			return false;
-		if (atualizacoes == null) {
-			if (other.atualizacoes != null)
-				return false;
-		} else if (!atualizacoes.equals(other.atualizacoes))
+		} else if (!atores.equals(other.atores))
 			return false;
 		if (cliente == null) {
 			if (other.cliente != null)
@@ -576,60 +402,20 @@ public final class ProjetoDeTesteBean implements Serializable {
 				return false;
 		} else if (!dataCriacao.equals(other.dataCriacao))
 			return false;
-		if (definido == null) {
-			if (other.definido != null)
-				return false;
-		} else if (!definido.equals(other.definido))
-			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
 		} else if (!descricao.equals(other.descricao))
-			return false;
-		if (diagramas == null) {
-			if (other.diagramas != null)
-				return false;
-		} else if (!diagramas.equals(other.diagramas))
-			return false;
-		if (documentos == null) {
-			if (other.documentos != null)
-				return false;
-		} else if (!documentos.equals(other.documentos))
-			return false;
-		if (envolvidos == null) {
-			if (other.envolvidos != null)
-				return false;
-		} else if (!envolvidos.equals(other.envolvidos))
 			return false;
 		if (fase == null) {
 			if (other.fase != null)
 				return false;
 		} else if (!fase.equals(other.fase))
 			return false;
-		if (faseDoProcesso == null) {
-			if (other.faseDoProcesso != null)
-				return false;
-		} else if (!faseDoProcesso.equals(other.faseDoProcesso))
-			return false;
-		if (gerenciado == null) {
-			if (other.gerenciado != null)
-				return false;
-		} else if (!gerenciado.equals(other.gerenciado))
-			return false;
-		if (historicoAlteracao == null) {
-			if (other.historicoAlteracao != null)
-				return false;
-		} else if (!historicoAlteracao.equals(other.historicoAlteracao))
-			return false;
 		if (idProjetoDeTeste == null) {
 			if (other.idProjetoDeTeste != null)
 				return false;
 		} else if (!idProjetoDeTeste.equals(other.idProjetoDeTeste))
-			return false;
-		if (modelos == null) {
-			if (other.modelos != null)
-				return false;
-		} else if (!modelos.equals(other.modelos))
 			return false;
 		if (modulos == null) {
 			if (other.modulos != null)
@@ -640,11 +426,6 @@ public final class ProjetoDeTesteBean implements Serializable {
 			if (other.nomeDoProjeto != null)
 				return false;
 		} else if (!nomeDoProjeto.equals(other.nomeDoProjeto))
-			return false;
-		if (otimizado == null) {
-			if (other.otimizado != null)
-				return false;
-		} else if (!otimizado.equals(other.otimizado))
 			return false;
 		if (quantidadeAnexo == null) {
 			if (other.quantidadeAnexo != null)
@@ -681,20 +462,15 @@ public final class ProjetoDeTesteBean implements Serializable {
 				return false;
 		} else if (!quantidadeTeste.equals(other.quantidadeTeste))
 			return false;
-		if (quantitativamente == null) {
-			if (other.quantitativamente != null)
-				return false;
-		} else if (!quantitativamente.equals(other.quantitativamente))
-			return false;
 		if (sistema == null) {
 			if (other.sistema != null)
 				return false;
 		} else if (!sistema.equals(other.sistema))
 			return false;
-		if (testes == null) {
-			if (other.testes != null)
+		if (subfase == null) {
+			if (other.subfase != null)
 				return false;
-		} else if (!testes.equals(other.testes))
+		} else if (!subfase.equals(other.subfase))
 			return false;
 		if (versaoDoProjeto == null) {
 			if (other.versaoDoProjeto != null)
