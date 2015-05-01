@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_ator", schema = "public")
 @SequenceGenerator(name = "sq_ator", sequenceName = "sq_ator", allocationSize = 0, initialValue = 1)
-public class AtorBean implements Serializable {
+public final class AtorBean implements Serializable {
 
 	private static final long serialVersionUID = -7844282849736164711L;
 

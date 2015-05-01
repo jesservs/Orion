@@ -4,10 +4,6 @@ import java.io.Serializable;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.slf4j.Logger;
-
-import br.com.unigranrio.orion.modelo.persistencia.DaoFactory;
-import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
 
 public class HibernateUtil implements Serializable {
 

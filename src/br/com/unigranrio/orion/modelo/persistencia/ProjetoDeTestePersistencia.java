@@ -27,7 +27,7 @@ public class ProjetoDeTestePersistencia implements
 	private Session sessao = null;
 
 	private Transaction transacao = null;
-
+	
 	public ProjetoDeTestePersistencia() {
 
 	}

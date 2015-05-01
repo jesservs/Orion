@@ -16,6 +16,8 @@ import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 import br.com.unigranrio.orion.util.HibernateUtil;
 import br.com.unigranrio.orion.util.PadraoInterface;
 
+
+
 public class DaoFactory implements Serializable {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

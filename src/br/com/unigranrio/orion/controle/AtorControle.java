@@ -11,7 +11,6 @@ import javax.faces.model.ListDataModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.unigranrio.orion.modelo.sistema.ProjetoDeTesteBean;
 import br.com.unigranrio.orion.modelo.usuario.AtorBean;
 import br.com.unigranrio.orion.servico.AtorServico;
 import br.com.unigranrio.orion.util.PadraoInterface;
